@@ -191,7 +191,7 @@
 				</table>
 			</div>
 		</div>
-		<div class='sheet-row'>
+		<div class='sheet-row sheet-flexcontainer'>
 			<div class='sheet-section sheet-family'>
 			   <div class='sheet-sectionhead sheet-inline'>
 					<p>Family Heritage</p>
@@ -224,6 +224,16 @@
 					<textarea name='attr_famsecrets'></textarea>
 				</div>
 			   </div>
+			</div>
+			<div class='sheet-section sheet-relationships'>
+				<div class='sheet-sectionhead'>
+					<p>Relationships</p>
+			   </div>
+			   <fieldset class='repeating_frenemies'>
+				<button class='sheet-relationroll' type='roll' value='[[2d6+@{relation}+?{Forward|0}cs>10cf<6]]'></button>
+				<input type='number' min=-2 max=2 value=0 step=1 name='attr_relation'>
+				<input type='text' name='attr_relationname'>
+			   </fieldset>
 			</div>
 		</div>
 		<div class='sheet-row'>
