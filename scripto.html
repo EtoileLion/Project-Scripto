@@ -230,7 +230,7 @@
 					<p>Relationships</p>
 			   </div>
 			   <fieldset class='repeating_frenemies'>
-				<button class='sheet-relationroll' type='roll' value='[[2d6+@{relation}+?{Forward|0}cs>10cf<6]]'></button>
+				<button class='sheet-relationroll' type='roll' value='[[2d6+@{relation}+?{Stat|None, 0|Body, @{body} + @{injured}|Heart, @{heart} + @{upset}|Mind, @{mind} + @{dazed}|Soul,@{soul} + @{exhausted}|Magic,@{magic} + @{jinxed}}+?{Forward|0}cs>10cf<6]]'></button>
 				<input type='number' min=-2 max=2 value=0 step=1 name='attr_relation'>
 				<input type='text' name='attr_relationname'>
 			   </fieldset>
