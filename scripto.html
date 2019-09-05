@@ -1,0 +1,288 @@
+<!--- Project Scripto --->
+<!--- Version 0.1 --->
+<!--- By EtoileLion --->
+<div class='sheet-bg'>
+	<div class='sheet-page sheet-page1'>
+		<div class='sheet-header'>
+			<table>
+			<tr><td>
+			<label>Name</label>
+			<input type='text' name='attr_character_name'>
+			</td><td>
+			<label>Family</label>
+			<input type='text' name='attr_famname'><br />
+			</td></tr>
+			<tr><td>
+			<label>Year</label>
+			<select name='attr_year'>
+				<option value='0'>Not Educated</option>
+				<option value='1'>1</option>
+				<option value='2'>2</option>
+				<option value='3'>3</option>
+				<option value='4'>4</option>
+				<option value='5'>5</option>
+				<option value='6'>6</option>
+				<option value='7'>7</option>
+				<option value='9'>Graduated</option>
+			</select>
+			</td>
+			<td>
+			<label>House</label>
+			<select>
+				<option value='none'>None</option>
+				<option value='gryffindor'>Gryffindor</option>
+				<option value='hufflepuff'>Hufflepuff</option>
+				<option value='ravenclaw'>Ravenclaw</option>
+				<option value='slytherin'>Slytherin</option>				
+			</select>
+			</tr></td>
+			</table>
+		</div>
+		<div class='sheet-5colrow sheet-flexcontainer'>
+			<div class='sheet-col sheet-section'>
+				<button class='sheet-attrroll' type='roll' value='[[2d6+@{body}+?{Forward|0}+@{injured}cs>10cf<6]]'>
+					<label>Body</label>
+				</button>
+				<input type='number' name='attr_body' min=-2 max=2 value=0 step=1>
+				<ul>
+					<li>Quick & Quiet</li>
+					<li>Struggle</li>
+					<li>Tough it Out</li>
+				</ul>
+			</div>
+			<div class='sheet-col sheet-section'>
+				<button class='sheet-attrroll' type='roll' value='[[2d6+@{heart}+?{Forward|0}+@{dazed}cs>10cf<6]]'>
+					<label>Heart</label>
+				</button>
+				<input type='number' name='attr_heart' min=-2 max=2 value=0 step=1>
+				<ul>
+					<li>Convince</li>
+					<li>Read Between the Lines</li>
+					<li>Treat Wounds</li>
+				</ul>				
+			</div>
+			<div class='sheet-col sheet-section'>
+				<button class='sheet-attrroll' type='roll' value='[[2d6+@{mind}+?{Forward|0}+@{upset}cs>10cf<6]]'>
+					<label>Mind</label>
+				</button>
+				<input type='number' name='attr_mind' min=-2 max=2 value=0 step=1>
+				<ul>
+					<li>I Read About That</li>
+					<li>Investigate</li>
+					<li>Notice Something</li>
+				</ul>				
+			</div>
+			<div class='sheet-col sheet-section'>
+				<button class='sheet-attrroll' type='roll' value='[[2d6+@{soul}+?{Forward|0}+@{exhausted}cs>10cf<6]]'>
+					<label>Soul</label>
+				</button>
+				<input type='number' name='attr_soul' min=-2 max=2 value=0 step=1>
+				<ul>
+					<li>Inspire Others</li>
+					<li>Resist Influence</li>
+					<li>Show Courage</li>
+				</ul>				
+			</div>
+			<div class='sheet-col sheet-section'>
+				<button class='sheet-attrroll' type='roll' value='[[2d6+@{magic}+?{Forward|0}+@{jinxed}cs>10cf<6]]'>
+					<label>Magic</label>
+				</button>
+				<input type='number' name='attr_magic' min=-2 max=2 value=0 step=1>
+				<ul>
+					<li>Cast a Spell</li>
+				</ul>				
+			</div>
+		</div>
+		<div class='sheet-row sheet-flexcontainer'>		
+			<div class='sheet-postraits sheet-section'>
+				<div class='sheet-sectionhead'>
+					<p>Positive Traits</p>
+				</div>			
+				<fieldset class='repeating_postraits'>
+					<input type='checkbox' name='attr_lockpostrait' class='sheet-postraitbox'>
+					<input type='text' name='attr_postrait' class='sheet-postrait'>
+				</fieldset>
+			</div>
+			<div class='sheet-negtraits sheet-section'>
+				<div class='sheet-sectionhead'>
+					<p>Negative Traits</p>
+				</div>			
+				<fieldset class='repeating_negtraits'>
+					<input type='checkbox' name='attr_locknegtrait' class='sheet-negtraitbox'>
+					<input type='text' name='attr_negtrait' class='sheet-negtrait'>
+				</fieldset>
+			</div>
+			<div class='sheet-conditions sheet-section'>
+				<div class='sheet-sectionhead'>
+					<p>Conditions</p>
+				</div>
+				<div class='sheet-flexcontainer'>
+					<input type='checkbox' name='attr_injured' value='-2'><p>Injured (-2 Body)</p>
+				</div>
+				<div class='sheet-flexcontainer'>				
+					<input type='checkbox' name='attr_dazed' value='-2'><p>Dazed (-2 Mind)</p>
+				</div>				
+				<div class='sheet-flexcontainer'>				
+					<input type='checkbox' name='attr_upset' value='-2'><p>Upset (-2 Heart)</p>
+				</div>				
+				<div class='sheet-flexcontainer'>				
+					<input type='checkbox' name='attr_exhausted' value='-2'><p>Exhausted (-2 Soul)</p>
+				</div>				
+				<div class='sheet-flexcontainer'>				
+					<input type='checkbox' name='attr_jinxed' value='-2'><p>Jinxed (-2 Magic)</p>
+				</div>				
+			</div>
+		</div>
+		<div class='sheet-row sheet-flexcontainer'>
+			<div class='sheet-section sheet-xp'>
+				<div class='sheet-sectionhead'>
+					<p>Experience</p>
+				</div>
+				<input type='checkbox' name='attr_xp1'>
+				<input type='checkbox' name='attr_xp2'>
+				<input type='checkbox' name='attr_xp3'>
+				<input type='checkbox' name='attr_xp4'>
+				<input type='checkbox' name='attr_xp5'>
+			</div>
+			<div class='sheet-section sheet-wand'>
+				<div class='sheet-sectionhead'>
+					<p>Wand</p>
+				</div>
+				<div>
+					<label>Core</label>
+					<input type='text' name='attr_wandcore'>
+				</div>
+				<div>
+					<label>Length</label>
+					<input type='text' name='attr_wandlength'>			
+				</div>
+				<div>
+					<label>Flexibility</label>
+					<input type='text' name='attr_wandflex'>
+				</div>
+			</div>
+		</div>		
+		<div class='sheet-row sheet-flexcontainer'>
+			<div class='sheet-section sheet-looks'>
+				<div class='sheet-sectionhead'>
+					<p>Looks</p>
+				</div>
+				<div>
+				<label>Body:</label>
+				<input type='text' name='attr_bodydesc'>
+				</div>
+				<div>
+				<label>Eyes:</label>
+				<input type='text' name='attr_eyesdesc'>
+				</div>
+				<div>
+				<label>Face:</label>
+				<input type='text' name='attr_facedesc'>
+				</div>
+			</div>
+			<div class='sheet-section sheet-money'>
+				<div class='sheet-sectionhead'>
+					<p>Money</p>
+				</div>
+				<table>
+				<tr><td><label>Galleons</label></td><td><input type='number' name='attr_moneyg' value=0 min=0></td></tr>
+				<tr><td><label>Sickles</label></td><td><input type='number' name='attr_moneys' value=0 min=0></td></tr>
+				<tr><td><label>Knuts</label></td><td><input type='number' name='attr_moneyk' value=0 min=0></td></tr>				
+				</table>
+			</div>
+		</div>
+		<div class='sheet-row'>
+			<div class='sheet-section sheet-family'>
+			   <div class='sheet-sectionhead sheet-inline'>
+					<p>Family Heritage</p>
+			   </div>
+			   <div class='sheet-3colrow'>
+					<div class='sheet-col'>
+					<input type='radio' name='attr_famheritage' value='muggle'>
+					<label>Muggle Family</label>
+					</div>
+					<div class='sheet-col'>	
+					<input type='radio' name='attr_famheritage' value='muggle'>
+					<label>Half-Blood Family</label>
+					</div>
+					<div class='sheet-col'>
+					<input type='radio' name='attr_famheritage' value='muggle'>
+					<label>Pureblood Family</label>
+					</div>
+				</div>
+			   <div class='sheet-2colrow'>
+				<div class='sheet-col'>
+					<label>Parents</label>
+					<input type='text' name='attr_parents'>					
+					<label>Siblings</label>
+					<input type='text' name='attr_siblings'>
+					<label>Hometown</label>
+					<input type='text' name='attr_hometown'>					
+				</div>
+				<div class='sheet-col'>
+					<label>Family Secrets</label>
+					<textarea name='attr_famsecrets'></textarea>
+				</div>
+			   </div>
+			</div>
+		</div>
+		<div class='sheet-row'>
+			<div class='sheet-section'>
+				<label>Spell Bank: Magic+1 when casting these spells.</label>
+				<button class='sheet-sigspellroll' type='roll' value='[[2d6+@{magic}+2+?{Forward|0}+@{jinxed}cs>10cf<6]]'>
+					<label>Signature Spell</label>					
+				</button>
+				<input type='text' name='attr_sigspell'>
+				<div class='sheet-flexcontainer'>
+				<fieldset class='repeating_spellbank'>
+					<button class='sheet-spellroll' type='roll' value='[[2d6+@{magic}+1+?{Forward|0}+@{jinxed}cs>10cf<6]]'>			
+					</button>
+					<input type='text' name='attr_spellname'>				
+				</fieldset>
+				</div>
+			</div>
+		</div>
+		<div class='sheet-row sheet-flexcontainer'>
+			<div class='sheet-section sheet-pet'>
+				<div class='sheet-sectionhead'>
+					<p>Pet</p>
+				</div>
+				<label>Name</label>
+				<input type='text' name='attr_petname'>
+				<label>Species</label>
+				<select name='attr_pettype'>
+					<option value='cat'>Cat</option>
+					<option value='owl'>Owl</option>
+					<option value='toad'>Toad</option>
+				</select>
+				<div class='sheet-sectionhead'>
+					<p>Notes</p>
+				</div>
+				<textarea name='attr_petnotes'>
+				</textarea>
+			</div>
+			<div class='sheet-section sheet-inventory'>
+				<div class='sheet-sectionhead'>
+					<p>Items</p>
+				</div>	
+				<fieldset class='repeating_inventory'>
+					<input type='text' name='attr_item'>
+				</fieldset>
+			</div>
+		</div>
+		<div class='sheet-row sheet-flexcontainer'>
+			<div class='sheet-section sheet-notes'>
+				<div class='sheet-sectionhead'>
+					<p>Notes</p>
+				</div>
+				<textarea name='attr_notes'></textarea>
+			</div>
+			<div class='sheet-section sheet-bio'>
+				<div class='sheet-sectionhead'>
+					<p>Biography</p>
+				</div>	
+				<textarea name='attr_bio'></textarea>
+			</div>
+		</div>		
+	</div>	
+</div>

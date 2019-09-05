@@ -1,0 +1,128 @@
+/* General */
+.sheet-section {
+	border: 1px solid black;
+}
+.sheet-row {
+	margin-bottom: 3px;
+}
+.sheet-row:last-child {
+	margin-bottom: 0px;
+}
+.sheet-flexcontainer {
+	display: flex !important;
+}
+	
+
+/* Header */
+.sheet-header label {
+	display: inline;
+}
+
+/* Attributes */
+.sheet-5colrow {
+	margin-bottom: 3px;
+}
+.sheet-5colrow .sheet-col {
+	flex: 1;
+	text-align: center;
+}
+.sheet-attrroll {
+	display: block;
+	background: transparent;
+	border: none;
+	margin: 0 auto 0 auto !important;
+}
+.sheet-attrroll:hover label {
+	color: #880088;
+}
+.sheet-attrroll label {
+	cursor: pointer;
+}
+.sheet-attrroll::before {
+	content: none !important;
+}
+.sheet-5colrow .sheet-col li {
+	text-align: left;
+	font-size: x-small;
+}
+/* Traits */
+.sheet-negtraits,
+.sheet-postraits {
+	flex: 1
+}
+
+/* Conditions */
+.sheet-conditions {
+		width: 18%;
+}
+.sheet-conditions .sheet-flexcontainer p {
+	flex: 1;
+}
+/* XP */
+.sheet-xp {
+	width: auto;
+}
+
+.sheet-xp label {
+	display: inline-block;
+}
+/* Wand */
+.sheet-wand {
+	flex: 1;
+}
+
+.sheet-wand div:not(:first-child) {
+	display: inline-block;
+}
+/* Looks */
+.sheet-looks div:not(:first-child) {
+	display: inline-block;
+}
+.sheet-looks {
+	flex: 1;
+}
+/* Money */
+.sheet-money {
+	width: 150px;
+}
+.sheet-money input {
+	margin-right: 2px;
+}
+/* Family */
+.sheet-family input[type='radio'] + label {
+	display: inline;
+}
+/* Spells */
+.sheet-sigspellroll {
+	display: inline;
+	background: transparent;
+	border: none;
+	margin: 0 auto 0 auto !important;
+	cursor: pointer;
+}
+.sheet-sigspellroll label {
+	cursor: pointer;
+}
+.sheet-sigspellroll:hover label {
+	color: #880088;
+}
+.sheet-sigspellroll::before {
+	content: none !important;
+}
+
+/* Pet */
+.sheet-pet {
+	flex: 1;
+}
+/* Items */
+.sheet-inventory {
+	width: 20%;
+}
+/* Notes */
+.sheet-notes {
+	width: 40%;
+}
+/* Bio */
+.sheet-bio {
+	flex: 1;
+}
