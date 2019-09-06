@@ -40,7 +40,7 @@
 		</div>
 		<div class='sheet-5colrow sheet-flexcontainer'>
 			<div class='sheet-col sheet-section'>
-				<button class='sheet-attrroll' type='roll' value='[[2d6+@{body}+?{Forward|0}+@{injured}cs>10cf<6]]'>
+				<button class='sheet-attrroll' type='roll' value='[[2d6+@{body}[Attr]+?{Forward|0}[Fwd]+@{injured}[Cond]cs>10cf<6]]'>
 					<label>Body</label>
 				</button>
 				<input type='number' name='attr_body' min=-2 max=2 value=0 step=1>
@@ -51,7 +51,7 @@
 				</ul>
 			</div>
 			<div class='sheet-col sheet-section'>
-				<button class='sheet-attrroll' type='roll' value='[[2d6+@{heart}+?{Forward|0}+@{dazed}cs>10cf<6]]'>
+				<button class='sheet-attrroll' type='roll' value='[[2d6+@{heart}[Attr]+?{Forward|0}[Fwd]+@{dazed}[Cond]cs>10cf<6]]'>
 					<label>Heart</label>
 				</button>
 				<input type='number' name='attr_heart' min=-2 max=2 value=0 step=1>
@@ -62,7 +62,7 @@
 				</ul>				
 			</div>
 			<div class='sheet-col sheet-section'>
-				<button class='sheet-attrroll' type='roll' value='[[2d6+@{mind}+?{Forward|0}+@{upset}cs>10cf<6]]'>
+				<button class='sheet-attrroll' type='roll' value='[[2d6+@{mind}[Attr]+?{Forward|0}[Fwd]+@{upset}[Cond]cs>10cf<6]]'>
 					<label>Mind</label>
 				</button>
 				<input type='number' name='attr_mind' min=-2 max=2 value=0 step=1>
@@ -73,7 +73,7 @@
 				</ul>				
 			</div>
 			<div class='sheet-col sheet-section'>
-				<button class='sheet-attrroll' type='roll' value='[[2d6+@{soul}+?{Forward|0}+@{exhausted}cs>10cf<6]]'>
+				<button class='sheet-attrroll' type='roll' value='[[2d6+@{soul}[Attr]+?{Forward|0}[Fwd]+@{exhausted}[Cond]cs>10cf<6]]'>
 					<label>Soul</label>
 				</button>
 				<input type='number' name='attr_soul' min=-2 max=2 value=0 step=1>
@@ -84,7 +84,7 @@
 				</ul>				
 			</div>
 			<div class='sheet-col sheet-section'>
-				<button class='sheet-attrroll' type='roll' value='[[2d6+@{magic}+?{Forward|0}+@{jinxed}cs>10cf<6]]'>
+				<button class='sheet-attrroll' type='roll' value='[[2d6+@{magic}[Attr]+?{Forward|0}[Fwd]+@{jinxed}[Cond]cs>10cf<6]]'>
 					<label>Magic</label>
 				</button>
 				<input type='number' name='attr_magic' min=-2 max=2 value=0 step=1>
@@ -230,7 +230,7 @@
 					<p>Relationships</p>
 			   </div>
 			   <fieldset class='repeating_frenemies'>
-				<button class='sheet-relationroll' type='roll' value='[[2d6+@{relation}+?{Stat|None, 0|Body, @{body} + @{injured}|Heart, @{heart} + @{upset}|Mind, @{mind} + @{dazed}|Soul,@{soul} + @{exhausted}|Magic,@{magic} + @{jinxed}}+?{Forward|0}cs>10cf<6]]'></button>
+				<button class='sheet-relationroll' type='roll' value='[[2d6+@{relation}[Relation]+?{Stat|None, 0[Attr]|Body, @{body}[Attr] + @{injured}[Cond]|Heart, @{heart}[Attr] + @{upset}[Cond]|Mind, @{mind}[Attr] + @{dazed}[Cond]|Soul,@{soul}[Attr] + @{exhausted}[Cond]|Magic,@{magic}[Attr] + @{jinxed}[Cond]}+?{Forward|0}[Fwd]cs>10cf<6]]'></button>
 				<input type='number' min=-2 max=2 value=0 step=1 name='attr_relation'>
 				<input type='text' name='attr_relationname'>
 			   </fieldset>
@@ -239,13 +239,13 @@
 		<div class='sheet-row'>
 			<div class='sheet-section'>
 				<label>Spell Bank: Magic+1 when casting these spells.</label>
-				<button class='sheet-sigspellroll' type='roll' value='[[2d6+@{magic}+2+?{Forward|0}+@{jinxed}cs>10cf<6]]'>
+				<button class='sheet-sigspellroll' type='roll' value='[[2d6+@{magic}[Attr]+2[Bonus]+?{Forward|0}[Fwd]+@{jinxed}[Cond]cs>10cf<6]]'>
 					<label>Signature Spell</label>					
 				</button>
 				<input type='text' name='attr_sigspell'>
 				<div class='sheet-flexcontainer'>
 				<fieldset class='repeating_spellbank'>
-					<button class='sheet-spellroll' type='roll' value='[[2d6+@{magic}+1+?{Forward|0}+@{jinxed}cs>10cf<6]]'>			
+					<button class='sheet-spellroll' type='roll' value='[[2d6+@{magic}[Attr]+1[Bonus]+?{Forward|0}[Fwd]+@{jinxed}[Cond]cs>10cf<6]]'>			
 					</button>
 					<input type='text' name='attr_spellname'>				
 				</fieldset>
