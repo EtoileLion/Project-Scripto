@@ -238,12 +238,15 @@
 		</div>
 		<div class='sheet-row'>
 			<div class='sheet-section'>
-				<label>Spell Bank: Magic+1 when casting these spells.</label>
+				<div class='sheet-sectionhead'>
+					<p>Spell Bank</p>
+			   </div>
 				<button class='sheet-sigspellroll' type='roll' value='[[2d6+@{magic}[Magic]+2[Bonus]+?{Forward|0}[Fwd]+@{jinxed}[Jnx.]cs>10cf<6]]'>
 					<label>Signature Spell</label>					
 				</button>
-				<input type='text' name='attr_sigspell'>
-				<div class='sheet-flexcontainer'>
+				<p><input type='text' name='attr_sigspell'> <span class='sheet-smalltext'>(+2 to casting this spell)</span></p>
+				<p>Regular Spell Bank <span class='sheet-smalltext'>(+1 to casting the below spells)</span></p>
+				<div class='sheet-flexcontainer'>				
 				<fieldset class='repeating_spellbank'>
 					<button class='sheet-spellroll' type='roll' value='[[2d6+@{magic}[Magic]+1[Bonus]+?{Forward|0}[Fwd]+@{jinxed}[Jnx.]cs>10cf<6]]'>			
 					</button>

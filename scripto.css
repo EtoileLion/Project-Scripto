@@ -11,7 +11,9 @@
 .sheet-flexcontainer {
 	display: flex !important;
 }
-	
+.sheet-smalltext {
+	font-size: x-small;
+}
 
 /* Header */
 .sheet-header label {
@@ -102,12 +104,16 @@
 }
 .sheet-sigspellroll label {
 	cursor: pointer;
+	font-size: 0.8em;
 }
 .sheet-sigspellroll:hover label {
 	color: #880088;
 }
 .sheet-sigspellroll::before {
 	content: none !important;
+}
+.sheet-sigspellroll + p {
+	display:inline-block;
 }
 
 /* Pet */
