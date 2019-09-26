@@ -6,14 +6,17 @@
 		<div class='sheet-header'>
 			<table>
 			<tr><td>
-			<label>Name</label>
+			<label>Name</label><br/>
 			<input type='text' name='attr_character_name'>
 			</td><td>
-			<label>Family</label>
-			<input type='text' name='attr_famname'><br />
+			<label>Family</label><br/>
+			<input type='text' name='attr_famname'>
+			</td><td>
+			    <label>Birthday</label><br/>
+			    <input type='text' name='attr_birthdate'>
 			</td></tr>
 			<tr><td>
-			<label>Year</label>
+			<label>Year</label><br/>
 			<select name='attr_year'>
 				<option value='0'>Not Educated</option>
 				<option value='1'>1</option>
@@ -27,15 +30,8 @@
 			</select>
 			</td>
 			<td>
-			<label>House</label>
-			<select>
-				<option value='none'>None</option>
-				<option value='gryffindor'>Gryffindor</option>
-				<option value='hufflepuff'>Hufflepuff</option>
-				<option value='ravenclaw'>Ravenclaw</option>
-				<option value='slytherin'>Slytherin</option>				
-			</select>
-			</tr></td>
+		
+			</td></tr>
 			</table>
 		</div>
 		<div class='sheet-5colrow sheet-flexcontainer'>
@@ -153,8 +149,12 @@
 					<input type='text' name='attr_wandcore'>
 				</div>
 				<div>
+				    <label>Wood</label>
+				    <input type="text" name='attr_wood'>
+				</div>
+				<div>
 					<label>Length</label>
-					<input type='text' name='attr_wandlength'>			
+					<input class="sheet-length-input" type='text' name='attr_wandlength' size="5">			
 				</div>
 				<div>
 					<label>Flexibility</label>
@@ -225,16 +225,38 @@
 				</div>
 			   </div>
 			</div>
-			<div class='sheet-section sheet-relationships'>
-				<div class='sheet-sectionhead'>
-					<p>Relationships</p>
+			
+		</div>
+		<div class='sheet-row sheet-flexcontainer'>
+			<div class='sheet-section sheet-house'>
+			   <div class='sheet-sectionhead sheet-inline'>
+					<p>School House</p>
 			   </div>
-			   <fieldset class='repeating_frenemies'>
-				<button class='sheet-relationroll' type='roll' value='[[2d6+@{relation}[Relation]+?{Stat|None, 0[None]|Body, @{body}[Body] + @{injured}[Inj.]|Heart, @{heart}[Heart] + @{upset}[Upset]|Mind, @{mind}[Mind] + @{dazed}[Dazed]|Soul,@{soul}[Soul] + @{exhausted}[Exh.]|Magic,@{magic}[Magic] + @{jinxed}[Jnx.]}+?{Forward|0}[Fwd]cs>10cf<6]]'></button>
-				<input type='number' min=-2 max=2 value=0 step=1 name='attr_relation'>
-				<input type='text' name='attr_relationname'>
-			   </fieldset>
+			   
+			   <div class='sheet-2colrow'>
+				<div class='sheet-col'>
+						<label>House:</label>
+            			<select>
+            				<option value='none'>None</option>
+            				<option value='gryffindor'>Gryffindor</option>
+            				<option value='hufflepuff'>Hufflepuff</option>
+            				<option value='ravenclaw'>Ravenclaw</option>
+            				<option value='slytherin'>Slytherin</option>				
+            			</select>			
+					<label>House Ghost:</label>
+					<input type='text' name='attr_ghost'>
+					<label>Common Room:</label>
+					<input type='text' name='attr_common_room'>	
+					<label>Entrance By:</label>
+					<input type='text' name='attr_entrance_by'><br/>
+				</div>
+				<div class='sheet-col'>
+					<label>House Benefit:</label>
+					<textarea name='attr_house_benefit'></textarea>
+				</div>
+			   </div>
 			</div>
+			
 		</div>
 		<div class='sheet-row'>
 			<div class='sheet-section'>
@@ -281,6 +303,16 @@
 				<fieldset class='repeating_inventory'>
 					<input type='text' name='attr_item'>
 				</fieldset>
+			</div>
+			<div class='sheet-section sheet-relationships'>
+				<div class='sheet-sectionhead'>
+					<p>Relationships</p>
+			   </div>
+			   <fieldset class='repeating_frenemies'>
+				<button class='sheet-relationroll' type='roll' value='[[2d6+@{relation}[Relation]+?{Stat|None, 0[None]|Body, @{body}[Body] + @{injured}[Inj.]|Heart, @{heart}[Heart] + @{upset}[Upset]|Mind, @{mind}[Mind] + @{dazed}[Dazed]|Soul,@{soul}[Soul] + @{exhausted}[Exh.]|Magic,@{magic}[Magic] + @{jinxed}[Jnx.]}+?{Forward|0}[Fwd]cs>10cf<6]]'></button>
+				<input type='number' min=-2 max=2 value=0 step=1 name='attr_relation'>
+				<input type='text' name='attr_relationname'>
+			   </fieldset>
 			</div>
 		</div>
 		<div class='sheet-row sheet-flexcontainer'>
