@@ -15,7 +15,7 @@ on("chat:message", function(msg) {
 		let ptraits = [];
 		let ntraits = [];
 		while(start < 5) {
-		    attr = getAttrByName(chars.get("_id"),"repeating_postraits_$"+start+"_postrait","current")
+		    attr = attrLookup(chars,"repeating_postraits_$"+start+"_postrait", false);
 		    start++
 		    if(attr == undefined) {
 		        break;
@@ -31,7 +31,7 @@ on("chat:message", function(msg) {
 		}
 		start = 0;
 		while(start < 5) {
-		    attr = getAttrByName(chars.get("_id"),"repeating_negtraits_$"+start+"_negtrait","current")
+		    attr = attrLookup(chars,"repeating_negtraits_$"+start+"_negtrait", false);
 		    start++
 		    if(attr == undefined) {
 		        break;
@@ -75,6 +75,30 @@ on("chat:message", function(msg) {
 });
 
 let houses = ["Gryffindor","Hufflepuff","Ravenclaw","Slytherin"];
+let sorting_messages = {
+    'starting':[
+        "Hmmm, let's see...",
+        "Ah, another one to be sorted...",
+        "Time to find your footing.",
+        "Oh you may not think I'm pretty, but don't judge on what you see, I'll eat myself if you can find a smarter hat than me.",
+        "Are you afraid of what you'll hear? Afraid I'll speak the name you fear?"
+        ],
+    'musing':[
+        "Interesting...",
+        "Where to put you",
+        "Where shall your future lie..."
+        ],
+    'decision':[
+        "#POS1#, but also #NEG1#... better be..",
+        "Ah, I know.",
+        "Best to put you into...",
+        "I've made my call, your house will be.."
+        ],
+    'emote':[
+        "hardly sits upon #CHARNAME#'s head for a moment before pronouncing '#HOUSE#!'",
+        "considers for a few moments before opening its mouth wide and proclaims... #CHARNAME# belongs in #HOUSE#!"
+        ]
+}
 let sorting_traits = {
     "adventurous": [1,0,0,0],
     "ambitious": [0,0,1,1],
@@ -150,27 +174,33 @@ let sorting_traits = {
     "strict":[0,0,0,1]
 }
 
-let sorting_messages = {
-    'starting':[
-        "Hmmm, let's see...",
-        "Ah, another one to be sorted...",
-        "Time to find your footing.",
-        "Oh you may not think I'm pretty, but don't judge on what you see, I'll eat myself if you can find a smarter hat than me.",
-        "Are you afraid of what you'll hear? Afraid I'll speak the name you fear?"
-        ],
-    'musing':[
-        "Interesting...",
-        "Where to put you",
-        "Where shall your future lie..."
-        ],
-    'decision':[
-        "#POS1#, but also #NEG1#... better be..",
-        "Ah, I know.",
-        "Best to put you into...",
-        "I've made my call, your house will be.."
-        ],
-    'emote':[
-        "hardly sits upon #CHARNAME#'s head for a moment before pronouncing '#HOUSE#!'",
-        "considers for a few moments before opening its mouth wide and proclaims... #CHARNAME# belongs in #HOUSE#!"
-        ]
-}
+/*With eternal thanks to The Aaron, who knows this stuff so well it's scary. */
+const attrLookup = (character,name,caseSensitive) => {
+        let match=name.match(/^(repeating_.*)_\$(\d+)_.*$/);
+        if(match){
+            let index=match[2],
+                attrMatcher=new RegExp(`^${name.replace(/_\$\d+_/,'_([-\\da-zA-Z]+)_')}$`,(caseSensitive?'i':'')),
+                createOrderKeys=[],
+                attrs=_.chain(findObjs({type:'attribute', characterid:character.id}))
+                    .map((a)=>{
+                        return {attr:a,match:a.get('name').match(attrMatcher)};
+                    })
+                    .filter((o)=>o.match)
+                    .each((o)=>createOrderKeys.push(o.match[1]))
+                    .reduce((m,o)=>{ m[o.match[1]]=o.attr; return m;},{})
+                    .value(),
+                sortOrderKeys = _.chain( ((findObjs({
+                        type:'attribute',
+                        characterid:character.id,
+                        name: `_reporder_${match[1]}`
+                    })[0]||{get:_.noop}).get('current') || '' ).split(/\s*,\s*/))
+                    .intersection(createOrderKeys)
+                    .union(createOrderKeys)
+                    .value();
+            if(index<sortOrderKeys.length && _.has(attrs,sortOrderKeys[index])){
+                return attrs[sortOrderKeys[index]];
+            }
+            return;
+        } 
+        return findObjs({ type:'attribute', characterid:character.id, name: name}, {caseInsensitive: !caseSensitive})[0];
+    };
