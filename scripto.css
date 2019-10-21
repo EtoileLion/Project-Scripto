@@ -1,4 +1,14 @@
 /* General */
+@font-face {
+  font-family: "Magic School One";
+  src: url("https://www.github.com/EtoileLion/Project-Scripto/blob/master/artifacts/MagicSchoolOne.ttf?raw=true") format("ttf");
+}
+
+@font-face {
+  font-family: "Minya Nouvelle";
+  src: url("https://www.github.com/EtoileLion/Project-Scripto/blob/master/artifacts/minya nouvelle rg.ttf?raw=true") format("ttf");
+}
+
 .sheet-section {
 	border: 1px solid black;
 }
@@ -14,12 +24,54 @@
 .sheet-smalltext {
 	font-size: x-small;
 }
+.sheet-flexcontainer {
+	display: flex;
+}
+.sheet-flex {
+	flex: 1;
+}
+.sheet-sectionhead p {
+    padding: 5px 0px 0px 5px;
+}
+
+/* Font Shift */
+.sheet-pictos {
+	font-family: "Pictos";
+}
+
+.sheet-sectionhead p,.sheet-name,.sheet-attrroll label {
+    font-family: "Magic School One";
+    font-size: x-large;
+}
+.sheet-sigspellroll ~ p,
+.sheet-sigspellroll,
+.sheet-pet label,
+.sheet-house label,
+.sheet-family label,
+.sheet-money label,
+.sheet-looks label,
+.sheet-wand label,
+.sheet-conditions input + p,
+.sheet-section ul,
+.sheet-header label {
+    font-family: "Minya Nouvelle";
+}
 
 /* Header */
 .sheet-header label {
 	display: inline;
 }
-
+.sheet-header table {
+    width: 100%;
+}
+.sheet-name {
+    font-size: 48px;
+    padding: 0px;
+    border: none;
+    color: black;
+}
+.sheet-pagetogglediv {
+}
 /* Attributes */
 .sheet-5colrow {
 	margin-bottom: 3px;
@@ -39,6 +91,7 @@
 }
 .sheet-attrroll label {
 	cursor: pointer;
+	padding-top: 5px;
 }
 .sheet-attrroll::before {
 	content: none !important;
@@ -47,10 +100,53 @@
 	text-align: left;
 	font-size: x-small;
 }
+.sheet-attrroll + input {
+    border: none;
+    font-size: xx-large;
+    text-align: center;
+}
 /* Traits */
 .sheet-negtraits,
 .sheet-postraits {
 	flex: 1
+}
+.sheet-traitbox {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 17px !important;
+}
+.sheet-traitbox input {
+   position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;   
+}
+.sheet-traitbox span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 17px;
+  color: transparent;
+}
+.sheet-traitbox input ~ span:before {
+    color: black;
+    content: ")";
+    font-family: "Pictos";
+    margin-left:5px;
+}
+.sheet-traitbox input:checked ~ span:before {
+  content: "(";
+}
+.sheet-traitbox ~ input {
+    margin-left: 23px;
 }
 
 /* Conditions */
@@ -63,6 +159,46 @@
 /* XP */
 .sheet-xp {
 	width: auto;
+}
+.sheet-xpcontainer {
+    text-align: center;
+}
+.sheet-xpbox {
+  position: relative;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 17px !important;
+}
+.sheet-xpbox input {
+   position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;   
+}
+.sheet-xpbox span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 17px;
+  color: transparent;
+}
+.sheet-xpbox input ~ span:before {
+    color: #999;
+    content: "S";
+    font-family: "Pictos";
+    margin-left:5px;
+}
+.sheet-xpbox input:checked ~ span:before {
+  color: goldenrod;
+}
+.sheet-xpbox ~ input {
+    margin-left: 22px;
 }
 
 .sheet-xp label {
@@ -127,23 +263,119 @@
 .sheet-pet {
 	flex: 1;
 }
+.sheet-pet > table {
+	width: 100%;
+}
+.sheet-pet > textarea {
+	width: 97%;
+}
 /* Items */
 .sheet-inventory {
-	width: 30%;
+	width: 50%;
 }
+/* Relationships */
+
+.sheet-relationships {
+    width: 50%;
+}
+
 /* Notes */
 .sheet-notes {
-	width: 40%;
+	flex: 1;
+}
+.sheet-notes textarea {
+	width: 98%;
 }
 /* Bio */
 .sheet-bio {
 	flex: 1;
 }
-
-.sheet-length-input {
-    width: 5em;   
+.sheet-bio textarea {
+	width: 98%;
 }
 
-.sheet-relationships {
-    width: 30%;
+
+/* Page Toggler */
+.sheet-pagetoggledivnpc,
+.sheet-page {
+	display: none;	
+}
+.sheet-sheetpage[value="1"] ~ .sheet-page1,
+.sheet-sheetpage[value="2"] ~ .sheet-page2,
+.sheet-sheetpage[value="3"] ~ .sheet-page3
+{
+	display: inline;
+}
+
+.sheet-pfcontainer {
+    display: inline;
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.sheet-pfcontainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.sheet-pfradio {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 19px;
+	width: 19px;
+	background-color: #eee;
+	border-radius: 25%;
+	text-align: center;
+}
+.sheet-pfcontainer:hover input ~ .sheet-pfradio {
+    background-color: #ccc;
+}
+.sheet-pfcontainer input:checked ~ .sheet-pfradio:after {
+	display: block;
+}
+.sheet-sheetpage[value="3"] ~ .sheet-page3 .sheet-pagetogglediv .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio,
+.sheet-sheetpage[value="1"] ~ .sheet-page1 .sheet-pagetogglediv .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
+.sheet-sheetpage[value="2"] ~ .sheet-page2 .sheet-pagetogglediv .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio {
+	background-color: #800d6d;
+	color: #aaa;
+}
+
+/* Roll Template */
+.sheet-rolltemplate-pbta {
+    background: linear-gradient(to right, purple,goldenrod);
+    border-radius: 8px;
+    width: 220px;
+    padding: 5px;
+}
+.sheet-rolltemplate-pbta table {
+    background: #333;
+    color: white;
+    width: 100%;
+    text-align:center;
+}
+.sheet-rolltemplate-pbta .sheet-rolltemplate-byline {
+    font-size: x-small;
+    text-align: center;
+}
+.sheet-rolltemplate-pbta .sheet-rolltemplate-dielinesucc .inlinerollresult { 
+    color: lightgreen;
+    background-color: transparent;
+    border: none;
+}
+.sheet-rolltemplate-pbta .sheet-rolltemplate-dielinepart .inlinerollresult { 
+    color: gold;
+    background-color: transparent;
+    border: none;
+}
+.sheet-rolltemplate-pbta .sheet-rolltemplate-dielinefail .inlinerollresult { 
+    color: crimson;
+    background-color: transparent;
+    border: none;
 }
