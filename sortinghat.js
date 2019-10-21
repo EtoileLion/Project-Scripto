@@ -8,23 +8,14 @@ on("chat:message", function(msg) {
 		    return;
 		}
 		chars = chars[0];
-		//let attrs = findObjs({_type:"attribute",_characterid:chars.get("_id")}).filter(function(obj) { 
-		//    let name = obj.get("name");
-		//    return name.indexOf("repeating_postraits") != -1 || name.indexOf("repeating_negtraits") != -1;
-		//});
-	    //if(attrs.length == 0) {
-	    //    sendChat("The Sorting Hat","/w "+msg.who.replace(" (GM)","")+" A blank personality has no house.")
-	    //    return
-	    //}
-	    //Start
-	    sendChat("The Sorting Hat","/w "+msg.who.replace(" (GM)","")+" "+sorting_messages.starting[Math.floor(Math.random() * sorting_messages.starting.length)]) };
-	    //Muse
-		setTimeout(function() { sendChat("The Sorting Hat","/w "+msg.who.replace(" (GM)","")+" "+sorting_messages.musing[Math.floor(Math.random() * sorting_messages.musing.length)]) },3000);
+		log("DEBUG1")
 		//Decide
 		let scores = [0,0,0,0];
 		let start = 0;
 		let unknowns = [];
-		while(true) {
+		let ptraits = [];
+		let ntraits = []
+		while(start < 5) {
 		    attr = getAttrByName(chars.get("_id"),"repeating_postraits_$"+start+"_postrait")
 		    start++
 		    if(attr == undefined) {
@@ -34,11 +25,13 @@ on("chat:message", function(msg) {
 		        unknowns.push(attr);
 		        continue;
 		    }
+		    ptraits.push(attr);
 		    let vals = sorting_traits[attr].map(function(x) { return x * Math.max((5-start),0); })
 		    scores = scores.map(function(x,i) { return x + vals[i]; })
 		}
-		let start = 0;
-		while(true) {
+		log("DEBUG2")		
+		start = 0;
+		while(start < 5) {
 		    attr = getAttrByName(chars.get("_id"),"repeating_negtraits_$"+start+"_negtrait")
 		    start++
 		    if(attr == undefined) {
@@ -47,13 +40,15 @@ on("chat:message", function(msg) {
 		    if(!sorting_traits.hasOwnProperty(attr)) {
 		        unknowns.push(attr);
 		        continue;
-		    }		    
+		    }
+		    ntraits.push(attr);
 		    let vals = sorting_traits[attr].map(function(x) { return x * Math.max((5-start),0); })
 		    scores = scores.map(function(x,i) { return x + vals[i]; })
 		}
 		log(scores)
 		if(unknowns.length > 0) {
 		    sendChat("The Sorting Hat","/w "+msg.who.replace(" (GM)","")+" I don't recognize the following traits: "+unknowns.join(","))
+		    return;
 		}
 		let score2 = scores;
 		let house = houses[scores.indexOf(Math.max(scores))];
@@ -68,15 +63,16 @@ on("chat:message", function(msg) {
 		        }
 		    }
 		}
-		setTimeout(function() { sendChat("The Sorting Hat","/w "+msg.who.replace(" (GM)","")+" "+sorting_messages.decision[Math.floor(Math.random() * sorting_messages.decision.length)]) } ,6000);
+	    //Start
+		sendChat("The Sorting Hat",'/emas "The Sorting Hat" is placed upon '+charname+"'s head...")
+	    sendChat("The Sorting Hat","/w "+msg.who.replace(" (GM)","")+" "+sorting_messages.starting[Math.floor(Math.random() * sorting_messages.starting.length)]);
+	    //Muse
+		setTimeout(function() { sendChat("The Sorting Hat","/w "+msg.who.replace(" (GM)","")+" "+sorting_messages.musing[Math.floor(Math.random() * sorting_messages.musing.length)]) },3000);
+		setTimeout(function() { sendChat("The Sorting Hat","/w "+msg.who.replace(" (GM)","")+" "+sorting_messages.decision[Math.floor(Math.random() * sorting_messages.decision.length)]).replace("#POS1#",ptraits[0]).replace("#NEG1#",ntraits[0]) } ,6000);
 		setTimeout(function() { sendChat("The Sorting Hat",'/emas "The Sorting Hat" '+sorting_messages.emote[Math.floor(Math.random() * sorting_messages.emote.length)].replace("#CHARNAME#",charname).replace("#HOUSE#",house)+((backups.length > 0)?"<br>Alternatives: "+backups.join(","):"")) },7500);
 	}
-}
+});
 
-
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve,ms));
-}
 let houses = ["Gryffindor","Hufflepuff","Ravenclaw","Slytherin"];
 let sorting_traits = {
     "adventurous": [1,0,0,0],
@@ -133,6 +129,7 @@ let sorting_traits = {
     "gullible":[1,1,0,0],
     "indecisive":[0,0,1,0],
     "insecure":[0,1,0,1],
+    "know-it-all":[0,0,1,0],
     "lazy":[0,1,0,0],
     "manipulative":[0,0,0,1],
     "melancholic":[0,0,1,1],
@@ -144,7 +141,6 @@ let sorting_traits = {
     "pushover":[0,1,0,0],
     "quiet":[0,1,1,0],
     "reckless":[1,0,0,0],
-    "reserved":[0,0,1,0],
     "secretive":[0,0,1,1],
     "self-righteous":[1,0,0,0],
     "skeptical":[0,0,1,1],
@@ -167,11 +163,13 @@ let sorting_messages = {
         "Where shall your future lie..."
         ],
     'decision':[
+        "#POS1#, but also #NEG1#... better be..",
         "Ah, I know.",
         "Best to put you into...",
         "I've made my call, your house will be.."
         ],
     'emote':[
+        "hardly sits upon #CHARNAME#'s head for a moment before pronouncing #HOUSE#",
         "considers for a few moments before opening its mouth wide and proclaims... #CHARNAME# belongs in #HOUSE#!"
         ]
 }
