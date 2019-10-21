@@ -2,47 +2,47 @@ on("chat:message", function(msg) {
 	if(msg.type === "api" && msg.content.indexOf("!sortchar") !== -1) {
 		let charname = msg.content.slice(msg.content.indexOf(" ")+1).trim();	    
 		let chars = findObjs({name: charname,"_type":"character"});
-		log(chars);
+		//log(chars);
 		if(chars.length == 0) {
 		    sendChat("The Sorting Hat","/w "+msg.who.replace(" (GM)","")+" You cannot put me on a head that does not exist!");
 		    return;
 		}
 		chars = chars[0];
-		log("DEBUG1")
 		//Decide
 		let scores = [0,0,0,0];
 		let start = 0;
 		let unknowns = [];
 		let ptraits = [];
-		let ntraits = []
+		let ntraits = [];
 		while(start < 5) {
-		    attr = getAttrByName(chars.get("_id"),"repeating_postraits_$"+start+"_postrait")
+		    attr = getAttrByName(chars.get("_id"),"repeating_postraits_$"+start+"_postrait","current")
 		    start++
 		    if(attr == undefined) {
 		        break;
 		    }
-		    if(!sorting_traits.hasOwnProperty(attr)) {
+		    if(!sorting_traits.hasOwnProperty(attr.toLowerCase())) {
 		        unknowns.push(attr);
 		        continue;
 		    }
 		    ptraits.push(attr);
-		    let vals = sorting_traits[attr].map(function(x) { return x * Math.max((5-start),0); })
+		    let vals = sorting_traits[attr.toLowerCase()].map(function(x) { return x * Math.max((6-start),0); })
+		    //log("Add PTrait:"+attr+" "+vals)
 		    scores = scores.map(function(x,i) { return x + vals[i]; })
 		}
-		log("DEBUG2")		
 		start = 0;
 		while(start < 5) {
-		    attr = getAttrByName(chars.get("_id"),"repeating_negtraits_$"+start+"_negtrait")
+		    attr = getAttrByName(chars.get("_id"),"repeating_negtraits_$"+start+"_negtrait","current")
 		    start++
 		    if(attr == undefined) {
 		        break;
 		    }
-		    if(!sorting_traits.hasOwnProperty(attr)) {
+		    if(!sorting_traits.hasOwnProperty(attr.toLowerCase())) {
 		        unknowns.push(attr);
 		        continue;
 		    }
 		    ntraits.push(attr);
-		    let vals = sorting_traits[attr].map(function(x) { return x * Math.max((5-start),0); })
+		    let vals = sorting_traits[attr.toLowerCase()].map(function(x) { return x * Math.max((6-start),0); })
+		    //log("Add NTrait:"+attr+" "+vals)		    		    
 		    scores = scores.map(function(x,i) { return x + vals[i]; })
 		}
 		log(scores)
@@ -50,16 +50,16 @@ on("chat:message", function(msg) {
 		    sendChat("The Sorting Hat","/w "+msg.who.replace(" (GM)","")+" I don't recognize the following traits: "+unknowns.join(","))
 		    return;
 		}
-		let score2 = scores;
-		let house = houses[scores.indexOf(Math.max(scores))];
-		score2.sort()
+		let score2 = [...scores];
+		score2.sort(function(a,b) {return b-a})
+		let house = houses[scores.indexOf(score2[0])];		
 		let backups = []
 		if(score2[0]-score2[1] <= 5) {
-		    backups.push(houses[scores.indexOf(score2[1])]);
+		    backups.push(houses[scores.indexOf(score2[1])]+" ("+(score2[0]-score2[1])+")");
 		    if(score2[0]-score2[2] <= 5) {
-		        backups.push(houses[scores.indexOf(score2[2])]);
+		        backups.push(houses[scores.indexOf(score2[2])]+" ("+(score2[0]-score2[2])+")");
 		        if(score2[0]-score2[3] <= 5) {
-		            backups.push(houses[scores.indexOf(score2[3])]);
+		            backups.push(houses[scores.indexOf(score2[3])]+" ("+(score2[0]-score2[3])+")");
 		        }
 		    }
 		}
@@ -68,8 +68,9 @@ on("chat:message", function(msg) {
 	    sendChat("The Sorting Hat","/w "+msg.who.replace(" (GM)","")+" "+sorting_messages.starting[Math.floor(Math.random() * sorting_messages.starting.length)]);
 	    //Muse
 		setTimeout(function() { sendChat("The Sorting Hat","/w "+msg.who.replace(" (GM)","")+" "+sorting_messages.musing[Math.floor(Math.random() * sorting_messages.musing.length)]) },3000);
-		setTimeout(function() { sendChat("The Sorting Hat","/w "+msg.who.replace(" (GM)","")+" "+sorting_messages.decision[Math.floor(Math.random() * sorting_messages.decision.length)]).replace("#POS1#",ptraits[0]).replace("#NEG1#",ntraits[0]) } ,6000);
-		setTimeout(function() { sendChat("The Sorting Hat",'/emas "The Sorting Hat" '+sorting_messages.emote[Math.floor(Math.random() * sorting_messages.emote.length)].replace("#CHARNAME#",charname).replace("#HOUSE#",house)+((backups.length > 0)?"<br>Alternatives: "+backups.join(","):"")) },7500);
+		setTimeout(function() { sendChat("The Sorting Hat","/w "+msg.who.replace(" (GM)","")+" "+sorting_messages.decision[Math.floor(Math.random() * sorting_messages.decision.length)].replace("#POS1#",ptraits[0]).replace("#NEG1#",ntraits[0])) } ,6000);
+		setTimeout(function() { sendChat("The Sorting Hat",'/emas "The Sorting Hat" '+sorting_messages.emote[Math.floor(Math.random() * sorting_messages.emote.length)].replace("#CHARNAME#",charname).replace("#HOUSE#",house.toUpperCase())) },7500);
+		if (backups.length > 0) { setTimeout( function() { sendChat("The Sorting Hat","<span class='sheet-smalltext'>Alternative(s): "+backups.join(",")+"</span>"); },7550); }
 	}
 });
 
@@ -169,7 +170,7 @@ let sorting_messages = {
         "I've made my call, your house will be.."
         ],
     'emote':[
-        "hardly sits upon #CHARNAME#'s head for a moment before pronouncing #HOUSE#",
+        "hardly sits upon #CHARNAME#'s head for a moment before pronouncing '#HOUSE#!'",
         "considers for a few moments before opening its mouth wide and proclaims... #CHARNAME# belongs in #HOUSE#!"
         ]
 }
