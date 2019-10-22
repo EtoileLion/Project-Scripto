@@ -30,7 +30,7 @@
 			<label>Family</label><br/>
 			<input type='text' name='attr_famname'>
 			</td><td>
-			    <label>Birthday</label><br/>
+			    <label>Birthdate</label><br/>
 			    <input type='text' name='attr_birthdate'>
 			</td><td>
 			<label>Year</label><br/>
@@ -103,6 +103,29 @@
 				</ul>				
 			</div>
 		</div>
+			<div class='sheet-conditions sheet-section'>
+				<div class='sheet-sectionhead'>
+					<p>Conditions <span class='sheet-subtext'>(5 conditions = passed out)</span></p>
+					
+				</div>
+				<div class='sheet-flexcontainer'>
+				<div class='sheet-flex'>
+					<input type='checkbox' name='attr_injured' value='-2'><p>Injured (-2 Body)</p>
+				</div>
+				<div class='sheet-flex'>				
+					<input type='checkbox' name='attr_dazed' value='-2'><p>Dazed (-2 Mind)</p>
+				</div>				
+				<div class='sheet-flex'>				
+					<input type='checkbox' name='attr_upset' value='-2'><p>Upset (-2 Heart)</p>
+				</div>				
+				<div class='sheet-flex'>				
+					<input type='checkbox' name='attr_exhausted' value='-2'><p>Exhausted (-2 Soul)</p>
+				</div>				
+				<div class='sheet-flex'>				
+					<input type='checkbox' name='attr_jinxed' value='-2'><p>Jinxed (-2 Magic)</p>
+				</div>				
+				</div>
+			</div>		
 		<div class='sheet-row sheet-flexcontainer'>		
 			<div class='sheet-postraits sheet-section'>
 				<div class='sheet-sectionhead'>
@@ -128,25 +151,15 @@
 					<input type='text' name='attr_negtrait' class='sheet-negtrait'>
 				</fieldset>
 			</div>
-			<div class='sheet-conditions sheet-section'>
+			<div class='sheet-section sheet-relationships'>
 				<div class='sheet-sectionhead'>
-					<p>Conditions</p>
-				</div>
-				<div class='sheet-flexcontainer'>
-					<input type='checkbox' name='attr_injured' value='-2'><p>Injured (-2 Body)</p>
-				</div>
-				<div class='sheet-flexcontainer'>				
-					<input type='checkbox' name='attr_dazed' value='-2'><p>Dazed (-2 Mind)</p>
-				</div>				
-				<div class='sheet-flexcontainer'>				
-					<input type='checkbox' name='attr_upset' value='-2'><p>Upset (-2 Heart)</p>
-				</div>				
-				<div class='sheet-flexcontainer'>				
-					<input type='checkbox' name='attr_exhausted' value='-2'><p>Exhausted (-2 Soul)</p>
-				</div>				
-				<div class='sheet-flexcontainer'>				
-					<input type='checkbox' name='attr_jinxed' value='-2'><p>Jinxed (-2 Magic)</p>
-				</div>				
+					<p>Relationships</p>
+			   </div>
+			   <fieldset class='repeating_frenemies'>
+				<button class='sheet-relationroll' type='roll' value='&{template:pbta} {{result=[[2d6+@{relation}[Relation]+?{Stat|None, 0[None]|Body, @{body}[Body] + @{injured}[Inj.]|Heart, @{heart}[Heart] + @{upset}[Upset]|Mind, @{mind}[Mind] + @{dazed}[Dazed]|Soul,@{soul}[Soul] + @{exhausted}[Exh.]|Magic,@{magic}[Magic] + @{jinxed}[Jnx.]}+?{Forward|0}[Fwd]cs>10cf<6]]}} {{relation=1}} {{forwardr=[[?{Forward|0}]]}} {{char=@{character_name}}} {{attr=Attribute}}'></button>
+				<input type='number' min=-2 max=2 value=0 step=1 name='attr_relation'>
+				<input type='text' name='attr_relationname'>
+			   </fieldset>
 			</div>
 		</div>
 		<div class='sheet-row sheet-flexcontainer'>
@@ -177,30 +190,7 @@
 				<span></span>
 				</label>				
 				</div>
-			</div>
-			<div class='sheet-section sheet-wand'>
-				<div class='sheet-sectionhead'>
-					<p>Wand</p>
-				</div>
-				<div>
-					<label>Core</label>
-					<input type='text' name='attr_wandcore'>
-				</div>
-				<div>
-				    <label>Wood</label>
-				    <input type="text" name='attr_wood'>
-				</div>
-				<div>
-					<label>Length</label>
-					<input class="sheet-length-input" type='text' name='attr_wandlength'>			
-				</div>
-				<div>
-					<label>Flexibility</label>
-					<input type='text' name='attr_wandflex'>
-				</div>
-			</div>
-		</div>		
-		<div class='sheet-row sheet-flexcontainer'>
+			</div>		
 			<div class='sheet-section sheet-looks'>
 				<div class='sheet-sectionhead'>
 					<p>Looks</p>
@@ -228,42 +218,6 @@
 				<tr><td><label>Knuts</label></td><td><input type='number' name='attr_moneyk' value=0 min=0></td></tr>				
 				</table>
 			</div>
-		</div>
-		<div class='sheet-row sheet-flexcontainer'>
-			<div class='sheet-section sheet-family'>
-			   <div class='sheet-sectionhead sheet-inline'>
-					<p>Family Heritage</p>
-			   </div>
-			   <div class='sheet-3colrow'>
-					<div class='sheet-col'>
-					<input type='radio' name='attr_famheritage' value='muggle'>
-					<label>Muggle Family</label>
-					</div>
-					<div class='sheet-col'>	
-					<input type='radio' name='attr_famheritage' value='hlfblood'>
-					<label>Half-Blood Family</label>
-					</div>
-					<div class='sheet-col'>
-					<input type='radio' name='attr_famheritage' value='pureblood'>
-					<label>Pureblood Family</label>
-					</div>
-				</div>
-			   <div class='sheet-2colrow'>
-				<div class='sheet-col'>
-					<label>Parents</label>
-					<input type='text' name='attr_parents'>					
-					<label>Siblings</label>
-					<input type='text' name='attr_siblings'>
-					<label>Hometown</label>
-					<input type='text' name='attr_hometown'>					
-				</div>
-				<div class='sheet-col'>
-					<label>Family Secrets</label>
-					<textarea name='attr_famsecrets'></textarea>
-				</div>
-			   </div>
-			</div>
-			
 		</div>
 		<div class='sheet-row sheet-flexcontainer'>
 			<div class='sheet-section sheet-house'>
@@ -337,6 +291,63 @@
 				</label>		
 			</div>
 		</div>	
+			<div class='sheet-section sheet-wand'>
+				<div class='sheet-sectionhead'>
+					<p>Wand</p>
+				</div>
+				<div>
+					<label>Core</label>
+					<input type='text' name='attr_wandcore'>
+				</div>
+				<div>
+				    <label>Wood</label>
+				    <input type="text" name='attr_wood'>
+				</div>
+				<div>
+					<label>Length</label>
+					<input class="sheet-length-input" type='text' name='attr_wandlength'>			
+				</div>
+				<div>
+					<label>Flexibility</label>
+					<input type='text' name='attr_wandflex'>
+				</div>
+			</div>
+		<div class='sheet-row sheet-flexcontainer'>
+			<div class='sheet-section sheet-family'>
+			   <div class='sheet-sectionhead sheet-inline'>
+					<p>Family Heritage</p>
+			   </div>
+			   <div class='sheet-3colrow'>
+					<div class='sheet-col'>
+					<input type='radio' name='attr_famheritage' value='muggle'>
+					<label>Muggle Family</label>
+					</div>
+					<div class='sheet-col'>	
+					<input type='radio' name='attr_famheritage' value='hlfblood'>
+					<label>Half-Blood Family</label>
+					</div>
+					<div class='sheet-col'>
+					<input type='radio' name='attr_famheritage' value='pureblood'>
+					<label>Pureblood Family</label>
+					</div>
+				</div>
+			   <div class='sheet-2colrow'>
+				<div class='sheet-col'>
+					<label>Parents</label>
+					<input type='text' name='attr_parents'>					
+					<label>Siblings</label>
+					<input type='text' name='attr_siblings'>
+					<label>Hometown</label>
+					<input type='text' name='attr_hometown'>					
+				</div>
+				<div class='sheet-col'>
+					<label>Family Secrets</label>
+					<textarea name='attr_famsecrets'></textarea>
+				</div>
+			   </div>
+			</div>
+			
+		</div>		
 		<div class='sheet-row sheet-flexcontainer'>
 			<div class='sheet-section sheet-pet'>
 				<div class='sheet-sectionhead'>
@@ -359,8 +370,6 @@
 				<textarea name='attr_petnotes'>
 				</textarea>
 			</div>
-		</div>
-		<div class='sheet-row sheet-flexcontainer'>
 			<div class='sheet-section sheet-inventory'>
 				<div class='sheet-sectionhead'>
 					<p>Items</p>
@@ -368,16 +377,6 @@
 				<fieldset class='repeating_inventory'>
 					<input type='text' name='attr_item'>
 				</fieldset>
-			</div>
-			<div class='sheet-section sheet-relationships'>
-				<div class='sheet-sectionhead'>
-					<p>Relationships</p>
-			   </div>
-			   <fieldset class='repeating_frenemies'>
-				<button class='sheet-relationroll' type='roll' value='&{template:pbta} {{result=[[2d6+@{relation}[Relation]+?{Stat|None, 0[None]|Body, @{body}[Body] + @{injured}[Inj.]|Heart, @{heart}[Heart] + @{upset}[Upset]|Mind, @{mind}[Mind] + @{dazed}[Dazed]|Soul,@{soul}[Soul] + @{exhausted}[Exh.]|Magic,@{magic}[Magic] + @{jinxed}[Jnx.]}+?{Forward|0}[Fwd]cs>10cf<6]]}} {{relation=1}} {{forwardr=[[?{Forward|0}]]}} {{char=@{character_name}}} {{attr=Attribute}}'></button>
-				<input type='number' min=-2 max=2 value=0 step=1 name='attr_relation'>
-				<input type='text' name='attr_relationname'>
-			   </fieldset>
 			</div>
 		</div>
 		<div class='sheet-row sheet-flexcontainer'>
@@ -473,7 +472,7 @@
 		</tr>
 		<tr>
 			<td class='sheet-rolltemplate-byline'>
-			 {{attr}}{{#rollGreater() forwardr 0}}+Forward{{/rollGreater() forwardr 0}}{{#relation}}+Relationship{{/relation}}{{#spellp}}+Spell Power{{/spellp}}
+			 {{attr}}{{#rollGreater() forwardr 0}}+Forward{{/rollGreater() forwardr 0}}{{#relation}}+Relationship{{/relation}}{{#spell}}+Spell Power{{/spell}}
 			</td>
 		</tr>		
 		<tr>

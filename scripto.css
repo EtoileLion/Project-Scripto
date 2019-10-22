@@ -1,16 +1,17 @@
 /* General */
 @font-face {
   font-family: "Magic School One";
-  src: url("https://www.github.com/EtoileLion/Project-Scripto/blob/master/artifacts/MagicSchoolOne.ttf?raw=true") format("ttf");
+  src: url("https://www.github.com/EtoileLion/Project-Scripto/blob/master/artifacts/MagicSchoolOne.ttf?raw=true") format("truetype");
 }
 
 @font-face {
   font-family: "Minya Nouvelle";
-  src: url("https://www.github.com/EtoileLion/Project-Scripto/blob/master/artifacts/minyanouvellerg.ttf?raw=true") format("ttf");
+  src: url("https://www.github.com/EtoileLion/Project-Scripto/blob/master/artifacts/minyanouvellerg.ttf?raw=true") format("truetype");
 }
 
 .sheet-section {
 	border: 1px solid black;
+	padding: 3px;
 }
 .sheet-row {
 	margin-bottom: 3px;
@@ -33,7 +34,10 @@
 .sheet-sectionhead p {
     padding: 5px 0px 0px 5px;
 }
-
+.sheet-subtext {
+	font-size: x-small;
+	font-family: "Minya Nouvelle";
+}
 /* Font Shift */
 .sheet-pictos {
 	font-family: "Pictos";
@@ -150,11 +154,12 @@
 }
 
 /* Conditions */
-.sheet-conditions {
-		width: 18%;
-}
 .sheet-conditions .sheet-flexcontainer p {
 	flex: 1;
+	display: inline;
+}
+.sheet-conditions div:nth-child(2) {
+	padding-left: 5px;
 }
 /* XP */
 .sheet-xp {
@@ -211,6 +216,10 @@
 
 .sheet-wand div:not(:first-child) {
 	display: inline-block;
+}
+
+.sheet-wand div:nth-child(4) input {
+	width: 150px;
 }
 /* Looks */
 .sheet-looks div:not(:first-child) {
