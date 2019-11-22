@@ -303,12 +303,19 @@
 	width: 98%;
 }
 
+/* NPC Motivation */
+.sheet-motivations {
+	width: 100%;
+}
 
 /* Page Toggler */
+.sheet-sheettype[value='npc'] ~ .sheet-pagetoggledivpc,
 .sheet-pagetoggledivnpc,
 .sheet-page {
 	display: none;	
 }
+.sheet-sheettype[value='npc'] ~ .sheet-pagetoggledivnpc,
+.sheet-sheetpage[value="npc"] ~ .sheet-pagenpc,
 .sheet-sheetpage[value="1"] ~ .sheet-page1,
 .sheet-sheetpage[value="2"] ~ .sheet-page2,
 .sheet-sheetpage[value="3"] ~ .sheet-page3
@@ -349,6 +356,7 @@
 .sheet-pfcontainer input:checked ~ .sheet-pfradio:after {
 	display: block;
 }
+.sheet-sheetpage[value="npc"] ~ .sheet-pagenpc .sheet-pagetogglediv .sheet-pfcontainer input[value="npc"] ~ .sheet-pfradio,
 .sheet-sheetpage[value="3"] ~ .sheet-page3 .sheet-pagetogglediv .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio,
 .sheet-sheetpage[value="1"] ~ .sheet-page1 .sheet-pagetogglediv .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
 .sheet-sheetpage[value="2"] ~ .sheet-page2 .sheet-pagetogglediv .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio {
