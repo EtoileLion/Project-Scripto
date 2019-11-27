@@ -382,17 +382,17 @@
     text-align: center;
 }
 .sheet-rolltemplate-pbta .sheet-rolltemplate-dielinesucc .inlinerollresult { 
-    color: lightgreen;
+    color: lightgreen !important;
     background-color: transparent;
     border: none;
 }
 .sheet-rolltemplate-pbta .sheet-rolltemplate-dielinepart .inlinerollresult { 
-    color: gold;
+    color: gold !important;
     background-color: transparent;
     border: none;
 }
 .sheet-rolltemplate-pbta .sheet-rolltemplate-dielinefail .inlinerollresult { 
-    color: crimson;
+    color: crimson !important;
     background-color: transparent;
     border: none;
 }
