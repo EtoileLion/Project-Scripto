@@ -53,7 +53,7 @@ on("chat:message", function(msg) {
 		    return;
 		}
 		let scoreres = _.chain(scores)
-		.map(function(score,key) { return {"name":houses[key],"sdiff":Math.max(scores)-score}; })
+		.map(function(score,key) { return {"name":houses[key],"sdiff":Math.max(...scores)-score}; })
 		.filter(function(result) { return result.sdiff <= 5; })
 		.sortBy(function(result) { return 5-result.sdiff; })
 		.pluck('name')
