@@ -1,26 +1,31 @@
 <!--- Project Scripto --->
 <!--- Version 1.0 (Accio) --->
 <!--- By EtoileLion and Kujio --->
-<div class='sheet-bg'>
-    <input type='hidden' name='attr_sheetpage' value="1" class="sheet-sheetpage">
-	<div class='sheet-page sheet-page1'>		
-		<div class='sheet-header'>		
-			<div class='sheet-flexcontainer'>
-			<input type='text' class='sheet-name sheet-flex' name='attr_character_name'>
-			<div class='sheet-pagetogglediv'>	
-				<label class='sheet-pfcontainer'>
+<div class='bg'>
+    <input type='hidden' name='attr_sheetpage' value="1" class="sheetpage">
+	<div class='page page1'>		
+		<div class='header'>		
+			<div class='flexcontainer'>
+			<input type='text' class='name flex' name='attr_character_name'>
+			<div class='pagetogglediv'>	
+				<label class='pfcontainer'>
 					<input name='attr_sheetpage'  type='radio' value="1" checked>
-					<span class="sheet-pfradio">1
+					<span class="pfradio">1
 					</span>
 				</label>
-				<label class='sheet-pfcontainer'>
+				<label class='pfcontainer'>
 					<input name='attr_sheetpage' type='radio' value="2" >
-					<span class="sheet-pfradio">2
+					<span class="pfradio">2
 					</span>		
 				</label>
-				<label class='sheet-pfcontainer'>
+				<label class='pfcontainer'>
 					<input name='attr_sheetpage' type='radio' value="3" >
-					<span class="sheet-pfradio sheet-pictos">y
+					<span class="pfradio pictos">{
+					</span>		
+				</label>				
+				<label class='pfcontainer'>
+					<input name='attr_sheetpage' type='radio' value="4" >
+					<span class="pfradio pictos">y
 					</span>		
 				</label>		
 			</div>					
@@ -48,9 +53,9 @@
 			</td></tr>
 			</table>
 		</div>
-		<div class='sheet-5colrow sheet-flexcontainer'>
-			<div class='sheet-col sheet-section'>
-				<button class='sheet-attrroll' type='roll' value='&{template:pbta} {{result=[[2d6+@{body}[Body]+?{Forward|0}[Fwd]+@{injured}[Inj.]cs>10cf<6]]}} {{forwardr=[[?{Forward|0}]]}} {{char=@{character_name}}} {{attr=Body}}'>
+		<div class='5colrow flexcontainer'>
+			<div class='col section'>
+				<button class='attrroll' type='roll' value='&{template:pbta} {{result=[[2d6+@{body}[Body]+?{Forward|0}[Fwd]+@{injured}[Inj.]cs>10cf<6]]}} {{forwardr=[[?{Forward|0}]]}} {{char=@{character_name}}} {{attr=Body}}'>
 					<label data-i18n="body">Body</label>
 				</button>
 				<input type='number' name='attr_body' min=-2 max=2 value=0 step=1>
@@ -60,8 +65,8 @@
 					<li data-i18n="toughitout">Tough it Out</li>
 				</ul>
 			</div>
-			<div class='sheet-col sheet-section'>
-				<button class='sheet-attrroll' type='roll' value='&{template:pbta} {{result=[[2d6+@{heart}[Heart]+?{Forward|0}[Fwd]+@{upset}[Upset]cs>10cf<6]]}} {{forwardr=[[?{Forward|0}]]}} {{char=@{character_name}}} {{attr=Heart}}'>
+			<div class='col section'>
+				<button class='attrroll' type='roll' value='&{template:pbta} {{result=[[2d6+@{heart}[Heart]+?{Forward|0}[Fwd]+@{upset}[Upset]cs>10cf<6]]}} {{forwardr=[[?{Forward|0}]]}} {{char=@{character_name}}} {{attr=Heart}}'>
 					<label data-i18n="heart">Heart</label>
 				</button>
 				<input type='number' name='attr_heart' min=-2 max=2 value=0 step=1>
@@ -71,8 +76,8 @@
 					<li data-i18n="treatwounds">Treat Wounds</li>
 				</ul>				
 			</div>
-			<div class='sheet-col sheet-section'>
-				<button class='sheet-attrroll' type='roll' value='&{template:pbta} {{result=[[2d6+@{mind}[Mind]+?{Forward|0}[Fwd]+@{dazed}[Dazed]cs>10cf<6]]}} {{forwardr=[[?{Forward|0}]]}} {{char=@{character_name}}}  {{attr=Mind}}'>
+			<div class='col section'>
+				<button class='attrroll' type='roll' value='&{template:pbta} {{result=[[2d6+@{mind}[Mind]+?{Forward|0}[Fwd]+@{dazed}[Dazed]cs>10cf<6]]}} {{forwardr=[[?{Forward|0}]]}} {{char=@{character_name}}}  {{attr=Mind}}'>
 					<label data-i18n="mind">Mind</label>
 				</button>
 				<input type='number' name='attr_mind' min=-2 max=2 value=0 step=1>
@@ -82,8 +87,8 @@
 					<li data-i18n="notice">Notice Something</li>
 				</ul>				
 			</div>
-			<div class='sheet-col sheet-section'>
-				<button class='sheet-attrroll' type='roll' value='&{template:pbta} {{result=[[2d6+@{soul}[Soul]+?{Forward|0}[Fwd]+@{exhausted}[Exh.]cs>10cf<6]]}} {{forwardr=[[?{Forward|0}]]}} {{char=@{character_name}}} {{attr=Soul}}'>
+			<div class='col section'>
+				<button class='attrroll' type='roll' value='&{template:pbta} {{result=[[2d6+@{soul}[Soul]+?{Forward|0}[Fwd]+@{exhausted}[Exh.]cs>10cf<6]]}} {{forwardr=[[?{Forward|0}]]}} {{char=@{character_name}}} {{attr=Soul}}'>
 					<label data-i18n="soul">Soul</label>
 				</button>
 				<input type='number' name='attr_soul' min=-2 max=2 value=0 step=1>
@@ -93,8 +98,8 @@
 					<li data-i18n="showcourage">Show Courage</li>
 				</ul>				
 			</div>
-			<div class='sheet-col sheet-section'>
-				<button class='sheet-attrroll' type='roll' value='&{template:pbta} {{result=[[2d6+@{magic}[Magic]+?{Forward|0}[Fwd]+@{jinxed}[Jnx.]cs>10cf<6]]}} {{forwardr=[[?{Forward|0}]]}} {{char=@{character_name}}} {{attr=Magic}}'>
+			<div class='col section'>
+				<button class='attrroll' type='roll' value='&{template:pbta} {{result=[[2d6+@{magic}[Magic]+?{Forward|0}[Fwd]+@{jinxed}[Jnx.]cs>10cf<6]]}} {{forwardr=[[?{Forward|0}]]}} {{char=@{character_name}}} {{attr=Magic}}'>
 					<label data-i18n="magic">Magic</label>
 				</button>
 				<input type='number' name='attr_magic' min=-2 max=2 value=0 step=1>
@@ -103,96 +108,96 @@
 				</ul>				
 			</div>
 		</div>
-			<div class='sheet-conditions sheet-section'>
-				<div class='sheet-sectionhead'>
-					<p data-i18n="conditions">Conditions <span class='sheet-subtext'>(5 conditions = passed out)</span></p>
+			<div class='conditions section'>
+				<div class='sectionhead'>
+					<p data-i18n="conditions">Conditions <span class='subtext'>(5 conditions = passed out)</span></p>
 					
 				</div>
-				<div class='sheet-flexcontainer'>
-				<div class='sheet-flex'>
-					<input type='checkbox' name='attr_injured' value='-2'><p data-i18n="injured">Injured (-2 Body)</p>
+				<div class='flexcontainer'>
+				<div class='flex'>
+					<input type='checkbox' name='attr_injured' value='-2'>&nbsp;<p data-i18n="injured">Injured (-2 Body)</p>
 				</div>
-				<div class='sheet-flex'>				
-					<input type='checkbox' name='attr_upset' value='-2'><p data-i18n="upset">Upset (-2 Heart)</p>
+				<div class='flex'>				
+					<input type='checkbox' name='attr_upset' value='-2'>&nbsp;<p data-i18n="upset">Upset (-2 Heart)</p>
 				</div>								
-				<div class='sheet-flex'>				
-					<input type='checkbox' name='attr_dazed' value='-2'><p data-i18n="dazed">Dazed (-2 Mind)</p>
+				<div class='flex'>				
+					<input type='checkbox' name='attr_dazed' value='-2'>&nbsp;<p data-i18n="dazed">Dazed (-2 Mind)</p>
 				</div>				
-				<div class='sheet-flex'>				
-					<input type='checkbox' name='attr_exhausted' value='-2'><p data-i18n="exhausted">Exhausted (-2 Soul)</p>
+				<div class='flex'>				
+					<input type='checkbox' name='attr_exhausted' value='-2'>&nbsp;<p data-i18n="exhausted">Exhausted (-2 Soul)</p>
 				</div>				
-				<div class='sheet-flex'>				
-					<input type='checkbox' name='attr_jinxed' value='-2'><p data-i18n="jinxed">Jinxed (-2 Magic)</p>
+				<div class='flex'>				
+					<input type='checkbox' name='attr_jinxed' value='-2'>&nbsp;<p data-i18n="jinxed">Jinxed (-2 Magic)</p>
 				</div>				
 				</div>
 			</div>		
-		<div class='sheet-row sheet-flexcontainer'>		
-			<div class='sheet-postraits sheet-section'>
-				<div class='sheet-sectionhead'>
+		<div class='row flexcontainer'>		
+			<div class='postraits section'>
+				<div class='sectionhead'>
 					<p data-i18n="postraits">Positive Traits</p>
 				</div>			
 				<fieldset class='repeating_postraits'>
-					<label class='sheet-traitbox'>
-					<input type='checkbox' name='attr_lockpostrait' class='sheet-postraitbox'>
+					<label class='traitbox'>
+					<input type='checkbox' name='attr_lockpostrait' class='postraitbox'>
 					<span>&nbsp;</span>
 					</label>
-					<input type='text' name='attr_postrait' class='sheet-postrait'>
+					<input type='text' name='attr_postrait' class='postrait'>
 				</fieldset>
 			</div>
-			<div class='sheet-negtraits sheet-section'>
-				<div class='sheet-sectionhead'>
+			<div class='negtraits section'>
+				<div class='sectionhead'>
 					<p data-i18n="negtraits">Negative Traits</p>
 				</div>			
 				<fieldset class='repeating_negtraits'>
-					<label class='sheet-traitbox'>
-					<input type='checkbox' name='attr_locknegtrait' class='sheet-negtraitbox'>
+					<label class='traitbox'>
+					<input type='checkbox' name='attr_locknegtrait' class='negtraitbox'>
 					<span>&nbsp;</span>
 					</label>
-					<input type='text' name='attr_negtrait' class='sheet-negtrait'>
+					<input type='text' name='attr_negtrait' class='negtrait'>
 				</fieldset>
 			</div>
-			<div class='sheet-section sheet-relationships'>
-				<div class='sheet-sectionhead'>
+			<div class='section relationships'>
+				<div class='sectionhead'>
 					<p data-i18n="relations">Relationships</p>
 			   </div>
 			   <fieldset class='repeating_frenemies'>
-				<button class='sheet-relationroll' type='roll' value='&{template:pbta} {{result=[[2d6+@{relation}[Relation]+?{Stat|None, 0[None]|Body, @{body}[Body] + @{injured}[Inj.]|Heart, @{heart}[Heart] + @{upset}[Upset]|Mind, @{mind}[Mind] + @{dazed}[Dazed]|Soul,@{soul}[Soul] + @{exhausted}[Exh.]|Magic,@{magic}[Magic] + @{jinxed}[Jnx.]}+?{Forward|0}[Fwd]cs>10cf<6]]}} {{relation=1}} {{forwardr=[[?{Forward|0}]]}} {{char=@{character_name}}} {{attr=Attribute}}'></button>
+				<button class='relationroll' type='roll' value='&{template:pbta} {{result=[[2d6+@{relation}[Relation]+?{Stat|None, 0[None]|Body, @{body}[Body] + @{injured}[Inj.]|Heart, @{heart}[Heart] + @{upset}[Upset]|Mind, @{mind}[Mind] + @{dazed}[Dazed]|Soul,@{soul}[Soul] + @{exhausted}[Exh.]|Magic,@{magic}[Magic] + @{jinxed}[Jnx.]}+?{Forward|0}[Fwd]cs>10cf<6]]}} {{relation=1}} {{forwardr=[[?{Forward|0}]]}} {{char=@{character_name}}} {{attr=Attribute}}'></button>
 				<input type='number' min=-2 max=2 value=0 step=1 name='attr_relation'>
 				<input type='text' name='attr_relationname'>
 			   </fieldset>
 			</div>
 		</div>
-		<div class='sheet-row sheet-flexcontainer'>
-			<div class='sheet-section sheet-xp'>
-				<div class='sheet-sectionhead'>
+		<div class='row flexcontainer'>
+			<div class='section xp'>
+				<div class='sectionhead'>
 					<p data-i18n="exp">Experience</p>
 				</div>
-				<div class='sheet-xpcontainer'>
-				<label class='sheet-xpbox'>
+				<div class='xpcontainer'>
+				<label class='xpbox'>
 				<input type='checkbox' name='attr_xp1'>
 				<span></span>
 				</label>
-				<label class='sheet-xpbox'>				
+				<label class='xpbox'>				
 				<input type='checkbox' name='attr_xp2'>
 				<span></span>
 				</label>				
-				<label class='sheet-xpbox'>				
+				<label class='xpbox'>				
 				<input type='checkbox' name='attr_xp3'>
 				<span></span>				
 				</label>	
 				<br>
-				<label class='sheet-xpbox'>				
+				<label class='xpbox'>				
 				<input type='checkbox' name='attr_xp4'>
 				<span></span>
 				</label>				
-				<label class='sheet-xpbox'>				
+				<label class='xpbox'>				
 				<input type='checkbox' name='attr_xp5'>
 				<span></span>
 				</label>				
 				</div>
 			</div>		
-			<div class='sheet-section sheet-looks'>
-				<div class='sheet-sectionhead'>
+			<div class='section looks'>
+				<div class='sectionhead'>
 					<p data-i18n="looks">Looks</p>
 				</div>
 				<div>
@@ -208,8 +213,8 @@
 				<input type='text' name='attr_facedesc'>
 				</div>
 			</div>
-			<div class='sheet-section sheet-money'>
-				<div class='sheet-sectionhead'>
+			<div class='section money'>
+				<div class='sectionhead'>
 					<p data-i18n="money">Money</p>
 				</div>
 				<table>
@@ -219,14 +224,14 @@
 				</table>
 			</div>
 		</div>
-		<div class='sheet-row sheet-flexcontainer'>
-			<div class='sheet-section sheet-house'>
-			   <div class='sheet-sectionhead sheet-inline'>
+		<div class='row flexcontainer'>
+			<div class='section house'>
+			   <div class='sectionhead inline'>
 					<p data-i18n="schoolhouse">School House</p>
 			   </div>
 			   
-			   <div class='sheet-2colrow'>
-				<div class='sheet-col'>
+			   <div class='2colrow'>
+				<div class='col'>
 						<label data-i18n="housecolon">House:</label>
             			<select name="attr_house">
             				<option value='none' data-i18n="none">None</option>
@@ -242,7 +247,7 @@
 					<label data-i18n="entranceby">Entrance By:</label>
 					<input type='text' name='attr_entrance_by'><br/>
 				</div>
-				<div class='sheet-col'>
+				<div class='col'>
 					<label data-i18n="housebenefit">House Benefit:</label>
 					<textarea name='attr_house_benefit'></textarea>
 				</div>
@@ -250,19 +255,19 @@
 			</div>
 			
 		</div>
-		<div class='sheet-row'>
-			<div class='sheet-section'>
-				<div class='sheet-sectionhead'>
+		<div class='row'>
+			<div class='section'>
+				<div class='sectionhead'>
 					<p data-i18n="spellbank">Spell Bank</p>
 			   </div>
-				<button class='sheet-sigspellroll' type='roll' value='&{template:pbta} {{result=[[2d6+@{magic}[Magic]+2[Bonus]+?{Forward|0}[Fwd]+@{jinxed}[Jnx.]cs>10cf<6]]}} {{spell=@{sigspell}}} {{forwardr=[[?{Forward|0}]]}} {{char=@{character_name}}} {{attr=Magic}}'>
+				<button class='sigspellroll' type='roll' value='&{template:pbta} {{result=[[2d6+@{magic}[Magic]+2[Bonus]+?{Forward|0}[Fwd]+@{jinxed}[Jnx.]cs>10cf<6]]}} {{spell=@{sigspell}}} {{forwardr=[[?{Forward|0}]]}} {{char=@{character_name}}} {{attr=Magic}}'>
 					<label data-i18n="sigspell">Signature Spell</label>					
 				</button>
-				<p><input type='text' name='attr_sigspell'> <span class='sheet-smalltext' data-i18n="plus2cast">(+2 to casting this spell)</span></p>
-				<p data-i18n="regspellbank">Regular Spell Bank <span class='sheet-smalltext'>(+1 to casting the below spells)</span></p>
-				<div class='sheet-flexcontainer'>				
+				<p><input type='text' name='attr_sigspell'> <span class='smalltext' data-i18n="plus2cast">(+2 to casting this spell)</span></p>
+				<p data-i18n="regspellbank">Regular Spell Bank <span class='smalltext'>(+1 to casting the below spells)</span></p>
+				<div class='flexcontainer'>				
 				<fieldset class='repeating_spellbank'>
-					<button class='sheet-spellroll' type='roll' value='&{template:pbta} {{result=[[2d6+@{magic}[Magic]+1[Bonus]+?{Forward|0}[Fwd]+@{jinxed}[Jnx.]cs>10cf<6]]}} {{spell=@{spellname}}} {{forwardr=[[?{Forward|0}]]}} {{char=@{character_name}}} {{attr=Magic}}'>			
+					<button class='spellroll' type='roll' value='&{template:pbta} {{result=[[2d6+@{magic}[Magic]+1[Bonus]+?{Forward|0}[Fwd]+@{jinxed}[Jnx.]cs>10cf<6]]}} {{spell=@{spellname}}} {{forwardr=[[?{Forward|0}]]}} {{char=@{character_name}}} {{attr=Magic}}'>			
 					</button>
 					<input type='text' name='attr_spellname'>				
 				</fieldset>
@@ -270,29 +275,34 @@
 			</div>
 		</div>
 	</div>
-	<div class='sheet-page sheet-page2'>
-		<div class='sheet-header sheet-flexcontainer'>
-			<div class='sheet-flex'></div>
-			<div class='sheet-pagetogglediv'>	
-				<label class='sheet-pfcontainer'>
+	<div class='page page2'>
+		<div class='header flexcontainer'>
+			<div class='flex'></div>
+			<div class='pagetogglediv'>	
+				<label class='pfcontainer'>
 					<input name='attr_sheetpage'  type='radio' value="1" checked>
-					<span class="sheet-pfradio">1
+					<span class="pfradio">1
 					</span>
 				</label>
-				<label class='sheet-pfcontainer'>
+				<label class='pfcontainer'>
 					<input name='attr_sheetpage' type='radio' value="2" >
-					<span class="sheet-pfradio">2
+					<span class="pfradio">2
 					</span>		
 				</label>
-				<label class='sheet-pfcontainer'>
+				<label class='pfcontainer'>
 					<input name='attr_sheetpage' type='radio' value="3" >
-					<span class="sheet-pfradio sheet-pictos">y
+					<span class="pfradio pictos">{
+					</span>		
+				</label>				
+				<label class='pfcontainer'>
+					<input name='attr_sheetpage' type='radio' value="4" >
+					<span class="pfradio pictos">y
 					</span>		
 				</label>		
 			</div>
 		</div>	
-			<div class='sheet-section sheet-wand'>
-				<div class='sheet-sectionhead'>
+			<div class='section wand'>
+				<div class='sectionhead'>
 					<p data-i18n="wand">Wand</p>
 				</div>
 				<div>
@@ -305,34 +315,34 @@
 				</div>
 				<div>
 					<label data-i18n="length">Length</label>
-					<input class="sheet-length-input" type='text' name='attr_wandlength'>			
+					<input class="length-input" type='text' name='attr_wandlength'>			
 				</div>
 				<div>
 					<label data-i18n="flexibility">Flexibility</label>
 					<input type='text' name='attr_wandflex'>
 				</div>
 			</div>
-		<div class='sheet-row sheet-flexcontainer'>
-			<div class='sheet-section sheet-family'>
-			   <div class='sheet-sectionhead sheet-inline'>
+		<div class='row flexcontainer'>
+			<div class='section family'>
+			   <div class='sectionhead inline'>
 					<p data-i18n="heritage">Family Heritage</p>
 			   </div>
-			   <div class='sheet-3colrow'>
-					<div class='sheet-col'>
+			   <div class='3colrow'>
+					<div class='col'>
 					<input type='radio' name='attr_famheritage' value='muggle'>
 					<label data-i18n="mugglefam">Muggle Family</label>
 					</div>
-					<div class='sheet-col'>	
+					<div class='col'>	
 					<input type='radio' name='attr_famheritage' value='hlfblood'>
 					<label data-i18n="halffam">Half-Blood Family</label>
 					</div>
-					<div class='sheet-col'>
+					<div class='col'>
 					<input type='radio' name='attr_famheritage' value='pureblood'>
 					<label data-i18n="purefam">Pureblood Family</label>
 					</div>
 				</div>
-			   <div class='sheet-2colrow'>
-				<div class='sheet-col'>
+			   <div class='2colrow'>
+				<div class='col'>
 					<label data-i18n="parents">Parents</label>
 					<input type='text' name='attr_parents'>					
 					<label data-i18n="siblings">Siblings</label>
@@ -340,7 +350,7 @@
 					<label data-i18n="hometown">Hometown</label>
 					<input type='text' name='attr_hometown'>					
 				</div>
-				<div class='sheet-col'>
+				<div class='col'>
 					<label data-i18n="famsecrets">Family Secrets</label>
 					<textarea name='attr_famsecrets'></textarea>
 				</div>
@@ -348,9 +358,9 @@
 			</div>
 			
 		</div>		
-		<div class='sheet-row sheet-flexcontainer'>
-			<div class='sheet-section sheet-pet'>
-				<div class='sheet-sectionhead'>
+		<div class='row flexcontainer'>
+			<div class='section pet'>
+				<div class='sectionhead'>
 					<p data-i18n="pet">Pet</p>
 				</div>
 			    <table><tr><td>
@@ -364,14 +374,14 @@
 					<option value='toad' data-i18n="toad">Toad</option>
 				</select>
 				</td></tr></table>
-				<div class='sheet-sectionhead'>
+				<div class='sectionhead'>
 					<p data-i18n="petnote">Pet Notes</p>
 				</div>
 				<textarea name='attr_petnotes'>
 				</textarea>
 			</div>
-			<div class='sheet-section sheet-inventory'>
-				<div class='sheet-sectionhead'>
+			<div class='section inventory'>
+				<div class='sectionhead'>
 					<p data-i18n="items">Items</p>
 				</div>	
 				<fieldset class='repeating_inventory'>
@@ -379,36 +389,36 @@
 				</fieldset>
 			</div>
 		</div>
-		<div class='sheet-row sheet-flexcontainer'>
-			<div class='sheet-section sheet-notes'>
-				<div class='sheet-sectionhead'>
+		<div class='row flexcontainer'>
+			<div class='section notes'>
+				<div class='sectionhead'>
 					<p data-i18n="notes">Notes</p>
 				</div>
 				<textarea name='attr_notes'></textarea>
 			</div>
 		</div>
-		<div class='sheet-row sheet-flexcontainer'>
-			<div class='sheet-section sheet-bio'>
-				<div class='sheet-sectionhead'>
+		<div class='row flexcontainer'>
+			<div class='section bio'>
+				<div class='sectionhead'>
 					<p data-i18n="bio">Biography</p>
 				</div>	
 				<textarea name='attr_bio'></textarea>
 			</div>
 		</div>		
 	</div>
-	<div class='sheet-page sheet-pagenpc'>
-		<div class='sheet-header'>			
-			<div class='sheet-flexcontainer'>
-			<input type='text' class='sheet-name sheet-flex' name='attr_character_name'>
-			<div class='sheet-pagetogglediv'>	
-				<label class='sheet-pfcontainer'>
+	<div class='page pagenpc'>
+		<div class='header'>			
+			<div class='flexcontainer'>
+			<input type='text' class='name flex' name='attr_character_name'>
+			<div class='pagetogglediv'>	
+				<label class='pfcontainer'>
 					<input name='attr_sheetpage'  type='radio' value="npc" checked>
-					<span class="sheet-pfradio">1
+					<span class="pfradio">1
 					</span>
 				</label>
-				<label class='sheet-pfcontainer'>
+				<label class='pfcontainer'>
 					<input name='attr_sheetpage' type='radio' value="3" >
-					<span class="sheet-pfradio sheet-pictos">y
+					<span class="pfradio pictos">y
 					</span>		
 				</label>		
 			</div>					
@@ -436,33 +446,33 @@
 			</td></tr>
 			</table>
 		</div>
-		<div class='sheet-row sheet-flexcontainer'>		
-			<div class='sheet-postraits sheet-section'>
-				<div class='sheet-sectionhead'>
+		<div class='row flexcontainer'>		
+			<div class='postraits section'>
+				<div class='sectionhead'>
 					<p data-i18n="postraits">Positive Traits</p>
 				</div>			
 				<fieldset class='repeating_postraits'>
-					<label class='sheet-traitbox'>
-					<input type='checkbox' name='attr_lockpostrait' class='sheet-postraitbox'>
+					<label class='traitbox'>
+					<input type='checkbox' name='attr_lockpostrait' class='postraitbox'>
 					<span>&nbsp;</span>
 					</label>
-					<input type='text' name='attr_postrait' class='sheet-postrait'>
+					<input type='text' name='attr_postrait' class='postrait'>
 				</fieldset>
 			</div>
-			<div class='sheet-negtraits sheet-section'>
-				<div class='sheet-sectionhead'>
+			<div class='negtraits section'>
+				<div class='sectionhead'>
 					<p data-i18n="negtraits">Negative Traits</p>
 				</div>			
 				<fieldset class='repeating_negtraits'>
-					<label class='sheet-traitbox'>
-					<input type='checkbox' name='attr_locknegtrait' class='sheet-negtraitbox'>
+					<label class='traitbox'>
+					<input type='checkbox' name='attr_locknegtrait' class='negtraitbox'>
 					<span>&nbsp;</span>
 					</label>
-					<input type='text' name='attr_negtrait' class='sheet-negtrait'>
+					<input type='text' name='attr_negtrait' class='negtrait'>
 				</fieldset>
 			</div>
-			<div class='sheet-section sheet-looks'>
-				<div class='sheet-sectionhead'>
+			<div class='section looks'>
+				<div class='sectionhead'>
 					<p data-i18n="looks">Looks</p>
 			   </div>
 				<div>
@@ -479,9 +489,9 @@
 				</div>			   
 			</div>			
 		</div>		
-		<div class='sheet-row sheet-flexcontainer'>
-			<div class='sheet-section'>
-				<div class='sheet-sectionhead'>
+		<div class='row flexcontainer'>
+			<div class='section'>
+				<div class='sectionhead'>
 					<p data-i18n="house">House</p>
 			   </div>
 			    <select name="attr_house">
@@ -492,59 +502,358 @@
             		<option value='slytherin' data-i18n="slytherin">Slytherin</option>				
             	</select>	
 			</div>
-			<div class='sheet-section sheet-flex'>
-				<div class='sheet-sectionhead'>
+			<div class='section flex'>
+				<div class='sectionhead'>
 					<p data-i18n="motivations">Motivations</p>
 			   </div>
-			   <input name='attr_motivations' class='sheet-motivations'>
+			   <input name='attr_motivations' class='motivations'>
 			</div>
 		</div>
-		<div class='sheet-row sheet-flexcontainer'>
-			<div class='sheet-section sheet-notes'>
-				<div class='sheet-sectionhead'>
+		<div class='row flexcontainer'>
+			<div class='section notes'>
+				<div class='sectionhead'>
 					<p data-i18n="notes">Notes</p>
 				</div>
 				<textarea name='attr_notes'></textarea>
 			</div>
 		</div>		
 	</div>
-	<div class='sheet-page sheet-page3'>
-		<div class='sheet-header sheet-flexcontainer'>
-			<div class='sheet-flex'></div>
-			<input type='hidden' class='sheet-sheettype' name='attr_sheettype' value='pc'>
-			<div class='sheet-pagetoggledivpc sheet-pagetogglediv'>	
-				<label class='sheet-pfcontainer'>
+	<div class='page page3'>
+		<div class='header flexcontainer'>
+			<div class='flex'></div>
+			<div class='pagetogglediv'>	
+				<label class='pfcontainer'>
 					<input name='attr_sheetpage'  type='radio' value="1" checked>
-					<span class="sheet-pfradio">1
+					<span class="pfradio">1
 					</span>
 				</label>
-				<label class='sheet-pfcontainer'>
+				<label class='pfcontainer'>
 					<input name='attr_sheetpage' type='radio' value="2" >
-					<span class="sheet-pfradio">2
+					<span class="pfradio">2
 					</span>		
 				</label>
-				<label class='sheet-pfcontainer'>
+				<label class='pfcontainer'>
 					<input name='attr_sheetpage' type='radio' value="3" >
-					<span class="sheet-pfradio sheet-pictos">y
+					<span class="pfradio pictos">{
 					</span>		
-				</label>		
-			</div>
-			<div class='sheet-pagetoggledivnpc sheet-pagetogglediv'>	
-				<label class='sheet-pfcontainer'>
-					<input name='attr_sheetpage'  type='radio' value="npc" checked>
-					<span class="sheet-pfradio">1
-					</span>
-				</label>
-				<label class='sheet-pfcontainer'>
-					<input name='attr_sheetpage' type='radio' value="3" >
-					<span class="sheet-pfradio sheet-pictos">y
+				</label>				
+				<label class='pfcontainer'>
+					<input name='attr_sheetpage' type='radio' value="4" >
+					<span class="pfradio pictos">y
 					</span>		
 				</label>		
 			</div>
 		</div>
-		<div class='sheet-row'>
-			<div class='sheet-section'>
-				<div class='sheet-sectionhead'>
+		<div class='row flexcontainer'>
+		    <div class='section charadv'>
+				<div class='sectionhead'>
+					<p data-i18n="charadv">School Year Advancement</p>
+				</div>
+				<p><button type='roll' value='&{template:cash} {{char=@{character_name}}} {{result=[[10d6]]}}' name="roll_breakmoney">Between-Year Money</button></p>				
+				<label data-i18n="electives">Electives</label>
+				<input class="yearhidden" type='hidden' name='attr_year' value="0">
+				<div class="electiveblock electivenya">
+					<p data-i18n="electivesnya" class='minya'>Electives are selected beginning in Year 3.</p>
+				</div>
+				<div class="elective3 electiveblock">
+					<span data-i18n="year" class="ms1"></span><span class="ms1"> 3:</span>
+					<select name="attr_elective3">
+						<option data-i18n="unselected">Unselected</option>					
+						<option data-i18n="elective_ancient">Study of Ancient Runes</option>
+						<option data-i18n="elective_divine">Divination</option>
+						<option data-i18n="elective_muggle">Muggle Studies</option>
+						<option data-i18n="elective_maths">Arithmancy</option>
+						<option data-i18n="elective_creatures">Care of Magical Creatures</option>
+					</select>
+					<p><span name="attr_elective3" class='minya'></span></p>
+				</div>
+				<div class="elective4 electiveblock">
+					<span data-i18n="year" class="ms1"></span><span class="ms1">  4:</span>
+					<select name="attr_elective4">
+						<option data-i18n="unselected">Unselected</option>					
+						<option data-i18n="elective_ancient">Study of Ancient Runes</option>
+						<option data-i18n="elective_divine">Divination</option>
+						<option data-i18n="elective_muggle">Muggle Studies</option>
+						<option data-i18n="elective_maths">Arithmancy</option>
+						<option data-i18n="elective_creatures">Care of Magical Creatures</option>
+					</select>
+					<p><span name="attr_elective4" class='minya'></span></p>
+				</div>
+				<div class="elective5 electiveblock">
+					<span data-i18n="year" class="ms1"></span><span class="ms1">  5:</span>
+					<select name="attr_elective5">
+						<option data-i18n="unselected">Unselected</option>					
+						<option data-i18n="elective_ancient">Study of Ancient Runes</option>
+						<option data-i18n="elective_divine">Divination</option>
+						<option data-i18n="elective_muggle">Muggle Studies</option>
+						<option data-i18n="elective_maths">Arithmancy</option>
+						<option data-i18n="elective_creatures">Care of Magical Creatures</option>
+					</select>
+					<p><span name="attr_elective5" class='minya'></span></p>
+				</div>
+				<div class="elective6 electiveblock">
+					<span data-i18n="year" class="ms1"></span><span class="ms1">  6:</span>
+					<select name="attr_elective6">
+						<option data-i18n="unselected">Unselected</option>					
+						<option data-i18n="elective_ancient">Study of Ancient Runes</option>
+						<option data-i18n="elective_divine">Divination</option>
+						<option data-i18n="elective_muggle">Muggle Studies</option>
+						<option data-i18n="elective_maths">Arithmancy</option>
+						<option data-i18n="elective_creatures">Care of Magical Creatures</option>
+					</select>
+					<p><span name="attr_elective6" class='minya'></span>,</p>
+					<select name="attr_advelective6">
+						<option data-i18n="unselected">Unselected</option>
+						<option data-i18n="elective_advmaths">Advanced Arithmancy Studies</option>
+						<option data-i18n="elective_alchemy">Alchemy</option>
+						<option data-i18n="elective_advancient">Ancient Studies</option>
+					</select>
+					<p><span name="attr_advelective6" class='minya'></span></p>
+				</div>
+				<div class="elective7 electiveblock">
+					<span data-i18n="year" class="ms1"></span><span class="ms1">  7:</span>
+					<select name="attr_elective7">
+						<option data-i18n="unselected">Unselected</option>					
+						<option data-i18n="elective_ancient">Study of Ancient Runes</option>
+						<option data-i18n="elective_divine">Divination</option>
+						<option data-i18n="elective_muggle">Muggle Studies</option>
+						<option data-i18n="elective_maths">Arithmancy</option>
+						<option data-i18n="elective_creatures">Care of Magical Creatures</option>
+					</select>
+					<p><span name="attr_elective7" class='minya'></span>,</p>
+					<select name="attr_advelective7">
+						<option data-i18n="unselected">Unselected</option>
+						<option data-i18n="elective_advmaths">Advanced Arithmancy Studies</option>
+						<option data-i18n="elective_alchemy">Alchemy</option>
+						<option data-i18n="elective_advancient">Ancient Studies</option>
+					</select>
+					<p><span name="attr_advelective7" class='minya'></span></p>					
+				</div>
+				<hr>
+				<label data-i18n="checklist">Checklist</label>
+				<div class="checklist checklistnone">
+					<p data-i18n="checklistnya">Checklist items are selected beginning in Year 2.</p>
+				</div>
+				<div class="checklist checklist24">
+					<label data-i18n="checklist-2-to-4" class='inline' >Second Year to Fourth Year</label><span class="subtext" data-i18n="chooseone">(Choose 1 at the beginning of each school year.)</span>
+					<div class='row'>
+						<input type='checkbox' name='attr_plusone1'>
+						<input type='checkbox' name='attr_plusone2'>
+						<p class='subtext'  data-i18n="checklist-plusoneattr">+1 to an Attribute (Max +3 for any attribute)</p>
+					</div>
+					<div class='row'>
+						<input type='checkbox' name='attr_unlockone1'>
+						<input type='checkbox' name='attr_unlockone2'>
+						<input type='checkbox' name='attr_unlockone3'>
+						<input type='checkbox' name='attr_unlockone4'>
+						<p class='subtext'  data-i18n="checklist-plusonespell">Unlock and add a spell below your current year to your Spell Bank.</p>
+					</div>
+				</div>
+				<div class="checklist checklist57">
+					<input type='hidden' class="checklist_carryfour" name='attr_unlockone1'>
+					<input type='hidden' class="checklist_carryfour"  name='attr_unlockone2'>						
+					<input type='hidden' class="checklist_carryfour"  name='attr_unlockone3'>
+					<input type='hidden' class="checklist_carryfour"  name='attr_unlockone4'>
+					<div>
+						<label data-i18n="checklist-2-to-4">Second Year to Fourth Year</label>
+						<div class='row'>
+							<input type='hidden' class="checklist_carryvalue" name='attr_unlockone1'>
+							<span class='pictos'>3</span>
+							<input type='hidden' class="checklist_carryvalue"  name='attr_unlockone2'>
+							<span class='pictos'>3</span>
+							<input type='hidden' class="checklist_carryvalue"  name='attr_unlockone3'>
+							<span class='pictos'>3</span>
+							<input type='hidden' class="checklist_carryvalue"  name='attr_unlockone4'>
+							<span class='pictos'>3</span>
+							<p class='subtext'  data-i18n="checklist-plusonespell">Unlock and add a spell below your current year to your Spell Bank.</p>
+						</div>
+					</div>
+					<label data-i18n="checklist-5-to-7" class='inline' >Fifth Year to Seventh Year</label><span class="subtext" data-i18n="chooseone">(Choose 1 at the beginning of each school year.)</span>					
+					<div class='row'>					
+						<input type='checkbox' name='attr_capone1'>
+						<input type='checkbox' name='attr_capone2'>
+						<p class='subtext'  data-i18n="checklist-plusonecap">Change the cap for 1 attribute to +4 (Except for Magic!)</p>
+					</div>
+					<div class='row'>
+						<input type='checkbox' name='attr_plusone1'>
+						<input type='checkbox' name='attr_plusone2'>
+						<p class='subtext'  data-i18n="checklist-plusoneattr">+1 to an Attribute (Max +3 for any attribute)</p>
+					</div>
+					<div class='row'>
+						<input type='checkbox' name='attr_chklist-signature'>						
+						<p class='subtext'  data-i18n="checklist-signature">Add an additional Signature Spell (spell must be below your current year)</p>
+					</div>
+					<div class='row'>
+						<input type='checkbox' name='attr_unlocktwo1'>
+						<input type='checkbox' name='attr_unlocktwo2'>
+						<input type='checkbox' name='attr_unlocktwo3'>
+						<p class='subtext'  data-i18n="checklist-plustwospell">Unlock and add <strong><i>two</i></strong> spells below your current year to your Spell Bank.</p>
+					</div>					
+				</div>
+				<div class="checklist checklist24 checklist57">
+					<label data-i18n="checklist-allyears"  class='inline' >All Years</label><span class="subtext" data-i18n="chooseone">(Choose 1 at the beginning of each school year.)</span>									
+					<div class='row'>
+						<input type='checkbox' name='attr_chklist-eos1'>
+						<input type='checkbox' name='attr_chklist-eos2'>
+						<p class='subtext'  data-i18n="checklist-plusoneeos">+1 to your Classes/School rolls at the end-of-session.</p>
+					</div>					
+					<div class='row'>
+						<input type='checkbox' name='attr_chklist-job1'>
+						<input type='checkbox' name='attr_chklist-job2'>
+						<p class='subtext'  data-i18n="checklist-plusdiejob">+1d6 to your Job Downtime Moves for Galleons.</p>
+					</div>					
+					<div class='row'>
+						<input type='checkbox' name='attr_chklist-gift1'>
+						<input type='checkbox' name='attr_chklist-gift2'>
+						<input type='checkbox' name='attr_chklist-gift3'>
+						<p class='subtext'  data-i18n="checklist-gift">Gift Item from your friends, relatives, or a teacher.</p>
+					</div>					
+					<div class='row'>
+						<input type='checkbox' name='attr_chklist-cash1'>
+						<input type='checkbox' name='attr_chklist-cash2'>
+						<input type='checkbox' name='attr_chklist-cash3'>
+						<p class='subtext'  data-i18n="checklist-cash">Earn an extra Between-Year Money roll this break.</p>
+					</div>					
+				</div>
+				<div class="checklist checklistfinal">
+					<input type='hidden' class="checklist_carryfour" name='attr_unlockone1'>
+					<input type='hidden' class="checklist_carryfour"  name='attr_unlockone2'>						
+					<input type='hidden' class="checklist_carryfour"  name='attr_unlockone3'>
+					<input type='hidden' class="checklist_carryfour"  name='attr_unlockone4'>
+					<div class='row'>
+						<input type='hidden' class="checklist_carryvalue" name='attr_unlockone1'>
+						<span class='pictos'>3</span>
+						<input type='hidden' class="checklist_carryvalue"  name='attr_unlockone2'>
+						<span class='pictos'>3</span>
+						<input type='hidden' class="checklist_carryvalue"  name='attr_unlockone3'>
+						<span class='pictos'>3</span>
+						<input type='hidden' class="checklist_carryvalue"  name='attr_unlockone4'>
+						<span class='pictos'>3</span>
+						<p class='subtext'  data-i18n="checklist-plusonespell">Unlock and add a spell below your current year to your Spell Bank.</p>
+					</div>
+					<input type='hidden' class="checklist_carrytwo" name='attr_plusone1'>
+					<input type='hidden' class="checklist_carrytwo"  name='attr_plusone2'>
+					<div class='row'>
+						<input type='hidden' name='attr_plusone1' class="checklist_carryvalue">
+						<span class='pictos'>3</span>
+						<input type='hidden' name='attr_plusone2' class="checklist_carryvalue">
+						<span class='pictos'>3</span>
+						<p class='subtext'  data-i18n="checklist-plusoneattr">+1 to an Attribute (Max +3 for any attribute)</p>
+					</div>					
+					<input type='hidden' name='attr_chklist-eos1' class="checklist_carrytwo">
+					<input type='hidden' name='attr_chklist-eos2' class="checklist_carrytwo">
+					<div class='row'>
+						<input type='hidden' name='attr_chklist-eos1' class="checklist_carryvalue">
+						<span class='pictos'>3</span>
+						<input type='hidden' name='attr_chklist-eos2' class="checklist_carryvalue">
+						<span class='pictos'>3</span>
+						<p class='subtext'  data-i18n="checklist-plusoneeos">+1 to your Classes/School rolls at the end-of-session.</p>
+					</div>
+					<input type='hidden' name='attr_chklist-job1' class="checklist_carrytwo">
+					<input type='hidden' name='attr_chklist-job2' class="checklist_carrytwo">
+					<div class='row'>
+						<input type='hidden' name='attr_chklist-job1' class="checklist_carryvalue">
+						<span class='pictos'>3</span>
+						<input type='hidden' name='attr_chklist-job2' class="checklist_carryvalue">
+						<span class='pictos'>3</span>
+						<p class='subtext'  data-i18n="checklist-plusdiejob">+1d6 to your Job Downtime Moves for Galleons.</p>
+					</div>
+					<input type='hidden' name='attr_chklist-gift1' class="checklist_carrythree">
+					<input type='hidden' name='attr_chklist-gift2' class="checklist_carrythree">
+					<input type='hidden' name='attr_chklist-gift3' class="checklist_carrythree">
+					<div class='row'>
+						<input type='hidden' name='attr_chklist-gift1' class="checklist_carryvalue">
+						<span class='pictos'>3</span>
+						<input type='hidden' name='attr_chklist-gift2' class="checklist_carryvalue">
+						<span class='pictos'>3</span>
+						<input type='hidden' name='attr_chklist-gift3' class="checklist_carryvalue">
+						<span class='pictos'>3</span>
+						<p class='subtext'  data-i18n="checklist-gift">Gift Item from your friends, relatives, or a teacher.</p>
+					</div>
+					<input type='hidden' name='attr_chklist-cash1' class="checklist_carrythree">
+					<input type='hidden' name='attr_chklist-cash2' class="checklist_carrythree">
+					<input type='hidden' name='attr_chklist-cash3' class="checklist_carrythree">					
+					<div class='row'>
+						<input type='hidden' name='attr_chklist-cash1' class="checklist_carryvalue">
+						<span class='pictos'>3</span>
+						<input type='hidden' name='attr_chklist-cash2' class="checklist_carryvalue">
+						<span class='pictos'>3</span>
+						<input type='hidden' name='attr_chklist-cash3' class="checklist_carryvalue">
+						<span class='pictos'>3</span>
+						<p class='subtext'  data-i18n="checklist-cash">Earn an extra Between-Year Money roll this break.</p>						
+					</div>
+					<input type='hidden' name='attr_capone1' class="checklist_carrytwo">
+					<input type='hidden' name='attr_capone2' class="checklist_carrytwo">
+					<div class='row'>					
+						<input type='hidden' name='attr_capone1' class="checklist_carryvalue">
+						<span class='pictos'>3</span>
+						<input type='hidden' name='attr_capone2' class="checklist_carryvalue">
+						<span class='pictos'>3</span>
+						<p class='subtext'  data-i18n="checklist-plusonecap">Change the cap for 1 attribute to +4 (Except for Magic!)</p>
+					</div>
+					<input type='hidden' name='attr_chklist-signature' class="checklist_carryone">						
+					<div class='row'>
+						<span class='pictos'>3</span>						
+						<p class='subtext'  data-i18n="checklist-signature">Add an additional Signature Spell (spell must be below your current year)</p>
+					</div>
+					<input type='hidden' name='attr_unlocktwo1' class="checklist_carrythree">
+					<input type='hidden' name='attr_unlocktwo2' class="checklist_carrythree">
+					<input type='hidden' name='attr_unlocktwo3' class="checklist_carrythree">
+					<div class='row'>
+						<input type='hidden' name='attr_unlocktwo1' class="checklist_carryvalue">
+						<span class='pictos'>3</span>
+						<input type='hidden' name='attr_unlocktwo2' class="checklist_carryvalue">
+						<span class='pictos'>3</span>
+						<input type='hidden' name='attr_unlocktwo3' class="checklist_carryvalue">
+						<span class='pictos'>3</span>
+						<p class='subtext'  data-i18n="checklist-plustwospell">Unlock and add <strong><i>two</i></strong> spells below your current year to your Spell Bank.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class='page page4'>
+		<div class='header flexcontainer'>
+			<div class='flex'></div>
+			<input type='hidden' class='sheettype' name='attr_sheettype' value='pc'>
+			<div class='pagetoggledivpc pagetogglediv'>	
+				<label class='pfcontainer'>
+					<input name='attr_sheetpage'  type='radio' value="1" checked>
+					<span class="pfradio">1
+					</span>
+				</label>
+				<label class='pfcontainer'>
+					<input name='attr_sheetpage' type='radio' value="2" >
+					<span class="pfradio">2
+					</span>		
+				</label>
+				<label class='pfcontainer'>
+					<input name='attr_sheetpage' type='radio' value="3" >
+					<span class="pfradio pictos">{
+					</span>		
+				</label>				
+				<label class='pfcontainer'>
+					<input name='attr_sheetpage' type='radio' value="4" >
+					<span class="pfradio pictos">y
+					</span>		
+				</label>		
+			</div>
+			<div class='pagetoggledivnpc pagetogglediv'>	
+				<label class='pfcontainer'>
+					<input name='attr_sheetpage'  type='radio' value="npc" checked>
+					<span class="pfradio">1
+					</span>
+				</label>
+				<label class='pfcontainer'>
+					<input name='attr_sheetpage' type='radio' value="3" >
+					<span class="pfradio pictos">y
+					</span>		
+				</label>		
+			</div>
+		</div>
+		<div class='row'>
+			<div class='section'>
+				<div class='sectionhead'>
 				<p data-i18n="styling">Styling (Currently Disabled)</p>
 				</div>
                 <select name='attr_sheetstyle'>
@@ -556,8 +865,8 @@
 					<option value='plain' data-i18n="slytherin">Slytherin</option>					
 				</select>				
 			</div>
-			<div class='sheet-section'>
-				<div class='sheet-sectionhead'>
+			<div class='section'>
+				<div class='sectionhead'>
 				<p data-i18n="sheettype">Sheet Type</p>
 				</div>
                 <select name='attr_sheettype'>
@@ -566,41 +875,41 @@
 				</select>				
 			</div>			    
 		</div>
-			<div class='sheet-section'>
-				<div class='sheet-sectionhead'>
+			<div class='section'>
+				<div class='sectionhead'>
 				<p data-i18n="sortinghat">Sorting Hat</p>
 				</div>
 				<button type='roll' value='!sortchar @{character_name}' data-i18n="sortinghataction">Sorting Hat This Character</button>
 			</div>	
 	</div>
 </div>
-<rolltemplate class="sheet-rolltemplate-pbta">
-	<table class='sheet-{{house}}-roll'>
+<rolltemplate class="rolltemplate-pbta">
+	<table class='{{house}}-roll'>
 		<tr>
-			<td class='sheet-rolltemplate-nameline'>
-			 {{char}} {{^spell}}rolls{{/spell}}{{#spell}}casts {{spell}}{{/spell}}
+			<td class='rolltemplate-nameline'>
+			 {{char}}
 			</td>
 		</tr>
 		<tr>
-			<td class='sheet-rolltemplate-byline'>
-			 {{attr}}{{#rollGreater() forwardr 0}}+Forward{{/rollGreater() forwardr 0}}{{#relation}}+Relationship{{/relation}}{{#spell}}+Spell Power{{/spell}}
+			<td class='rolltemplate-byline'>
+			  {{^spell}}rolls{{/spell}}{{#spell}}casts {{spell}}{{/spell}} {{attr}}{{#rollGreater() forwardr 0}}+Forward{{/rollGreater() forwardr 0}}{{#relation}}+Relationship{{/relation}}{{#spell}}+Spell Power{{/spell}}
 			</td>
 		</tr>		
 		<tr>
 	  			{{#rollGreater() result 9}}
-				<td class='sheet-rolltemplate-dielinesucc'>
+				<td class='rolltemplate-dielinesucc'>
 				{{/rollGreater() result 9}}
 				{{#rollBetween() result 7 9}}
-				<td class='sheet-rolltemplate-dielinepart'>
+				<td class='rolltemplate-dielinepart'>
 				{{/rollBetween() result 7 9}}
 				{{#rollLess() result 7}}
-				<td class='sheet-rolltemplate-dielinefail'>
+				<td class='rolltemplate-dielinefail'>
 				{{/rollLess() result 7}}
 				{{result}}
 				</td>
 		</tr>
 		<tr>
-			<td class='sheet-rolltemplate-resline'>
+			<td class='rolltemplate-resline'>
 	  			{{#rollGreater() result 9}}
 				Complete Success
 				{{/rollGreater() result 9}}
@@ -610,6 +919,25 @@
 				{{#rollLess() result 7}}
 				Failure
 				{{/rollLess() result 7}}
+			</td>
+		</tr>		
+	</table>
+</rolltemplate>
+<rolltemplate class="rolltemplate-cash">
+	<table>
+		<tr>
+			<td class='rolltemplate-nameline'>
+			 {{char}}
+			</td>
+		</tr>
+		<tr>
+			<td class='rolltemplate-byline'>
+			 Between-Year Money
+			</td>
+		</tr>		
+		<tr>
+			<td class='rolltemplate-resline'>
+			  {{result}} Galleons
 			</td>
 		</tr>		
 	</table>

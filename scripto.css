@@ -43,10 +43,11 @@
 	font-family: "Pictos";
 }
 
-.sheet-sectionhead p,.sheet-name,.sheet-attrroll label {
+.sheet-ms1,.sheet-sectionhead p,.sheet-name,.sheet-attrroll label {
     font-family: "Magic School One";
     font-size: x-large;
 }
+.sheet-minya,
 .sheet-sigspellroll ~ p,
 .sheet-sigspellroll,
 .sheet-pet label,
@@ -57,7 +58,8 @@
 .sheet-wand label,
 .sheet-conditions input + p,
 .sheet-section ul,
-.sheet-header label {
+.sheet-header label,
+.sheet-charadv label {
     font-family: "Minya Nouvelle";
 }
 
@@ -318,7 +320,8 @@
 .sheet-sheetpage[value="npc"] ~ .sheet-pagenpc,
 .sheet-sheetpage[value="1"] ~ .sheet-page1,
 .sheet-sheetpage[value="2"] ~ .sheet-page2,
-.sheet-sheetpage[value="3"] ~ .sheet-page3
+.sheet-sheetpage[value="3"] ~ .sheet-page3,
+.sheet-sheetpage[value="4"] ~ .sheet-page4
 {
 	display: inline;
 }
@@ -357,6 +360,7 @@
 	display: block;
 }
 .sheet-sheetpage[value="npc"] ~ .sheet-pagenpc .sheet-pagetogglediv .sheet-pfcontainer input[value="npc"] ~ .sheet-pfradio,
+.sheet-sheetpage[value="4"] ~ .sheet-page3 .sheet-pagetogglediv .sheet-pfcontainer input[value="4"] ~ .sheet-pfradio,
 .sheet-sheetpage[value="3"] ~ .sheet-page3 .sheet-pagetogglediv .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio,
 .sheet-sheetpage[value="1"] ~ .sheet-page1 .sheet-pagetogglediv .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
 .sheet-sheetpage[value="2"] ~ .sheet-page2 .sheet-pagetogglediv .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio {
@@ -364,6 +368,79 @@
 	color: #aaa;
 }
 
+/* Electives */
+.sheet-checklist,
+.sheet-electiveblock:not(.sheet-electivenya) p,
+.sheet-electiveblock select,
+.sheet-electiveblock {
+	display: none;
+}
+
+.sheet-inline,
+.sheet-yearhidden[value="3"] ~ .sheet-elective3 select,
+.sheet-yearhidden[value="4"] ~ .sheet-elective4 select,
+.sheet-yearhidden[value="5"] ~ .sheet-elective5 select,
+.sheet-yearhidden[value="6"] ~ .sheet-elective6 select,
+.sheet-yearhidden[value="7"] ~ .sheet-elective7 select {
+	display: inline;
+}
+.sheet-yearhidden:not([value="3"]) ~ .sheet-elective3 p,
+.sheet-yearhidden:not([value="4"]) ~ .sheet-elective4 p,
+.sheet-yearhidden:not([value="5"]) ~ .sheet-elective5 p,
+.sheet-yearhidden:not([value="6"]) ~ .sheet-elective6 p,
+.sheet-yearhidden:not([value="7"]) ~ .sheet-elective7 p {
+	display: inline;
+}
+
+.sheet-yearhidden[value="0"] ~ .sheet-electivenya,
+.sheet-yearhidden[value="1"] ~ .sheet-electivenya,
+.sheet-yearhidden[value="2"] ~ .sheet-electivenya,
+.sheet-yearhidden[value="3"] ~ .sheet-elective3,
+.sheet-yearhidden[value="4"] ~ .sheet-elective3,
+.sheet-yearhidden[value="4"] ~ .sheet-elective4,
+.sheet-yearhidden[value="5"] ~ .sheet-elective3,
+.sheet-yearhidden[value="5"] ~ .sheet-elective4,
+.sheet-yearhidden[value="5"] ~ .sheet-elective5,
+.sheet-yearhidden[value="6"] ~ .sheet-elective3,
+.sheet-yearhidden[value="6"] ~ .sheet-elective4,
+.sheet-yearhidden[value="6"] ~ .sheet-elective5,
+.sheet-yearhidden[value="6"] ~ .sheet-elective6,
+.sheet-yearhidden[value="7"] ~ .sheet-elective3,
+.sheet-yearhidden[value="7"] ~ .sheet-elective4,
+.sheet-yearhidden[value="7"] ~ .sheet-elective5,
+.sheet-yearhidden[value="7"] ~ .sheet-elective6,
+.sheet-yearhidden[value="7"] ~ .sheet-elective7,
+.sheet-yearhidden[value="9"] ~ .sheet-elective3,
+.sheet-yearhidden[value="9"] ~ .sheet-elective4,
+.sheet-yearhidden[value="9"] ~ .sheet-elective5,
+.sheet-yearhidden[value="9"] ~ .sheet-elective6,
+.sheet-yearhidden[value="9"] ~ .sheet-elective7,
+.sheet-yearhidden[value="0"] ~ .sheet-checklistnone,
+.sheet-yearhidden[value="1"] ~ .sheet-checklistnone,
+.sheet-yearhidden[value="2"] ~ .sheet-checklist24,
+.sheet-yearhidden[value="3"] ~ .sheet-checklist24,
+.sheet-yearhidden[value="4"] ~ .sheet-checklist24,
+.sheet-yearhidden[value="5"] ~ .sheet-checklist57,
+.sheet-yearhidden[value="6"] ~ .sheet-checklist57,
+.sheet-yearhidden[value="7"] ~ .sheet-checklist57,
+.sheet-yearhidden[value="9"] ~ .sheet-checklistfinal {
+	display: block;
+}
+
+/* Checklist */
+.sheet-checklist span {
+	display: inline;
+}
+.sheet-checklist p {
+	display: inline-block;
+}
+.sheet-checklist_carryone:not([value="on"]) + div,
+.sheet-checklist_carrytwo:not([value="on"]) + .sheet-checklist_carrytwo:not([value="on"]) + div,
+.sheet-checklist_carrythree:not([value="on"]) + .sheet-checklist_carrythree:not([value="on"]) + .sheet-checklist_carrythree:not([value="on"]) + div,
+.sheet-checklist_carryfour:not([value="on"]) + .sheet-checklist_carryfour:not([value="on"]) + .sheet-checklist_carryfour:not([value="on"]) + .sheet-checklist_carryfour:not([value="on"]) + div,
+.sheet-checklist_carryvalue:not([value="on"]) + span {
+	display: none;
+}
 /* Roll Template */
 .sheet-rolltemplate-pbta {
     background: linear-gradient(to right, purple,goldenrod);
@@ -371,20 +448,39 @@
     width: 220px;
     padding: 5px;
 }
+.sheet-rolltemplate-cash {
+    background: linear-gradient(to right, goldenrod,green);
+    border-radius: 8px;
+    width: 220px;
+    padding: 5px;
+}
+.sheet-rolltemplate-cash table,
 .sheet-rolltemplate-pbta table {
     background: #333;
     color: white;
     width: 100%;
     text-align:center;
 }
+.sheet-rolltemplate-cash .sheet-rolltemplate-byline,
 .sheet-rolltemplate-pbta .sheet-rolltemplate-byline {
     font-size: x-small;
     text-align: center;
+}
+.sheet-rolltemplate-cash .inlinerollresult {
+	color: white !important;
+    background-color: transparent;
+    border: none !important;	
 }
 .sheet-rolltemplate-pbta .sheet-rolltemplate-dielinesucc .inlinerollresult { 
     color: lightgreen !important;
     background-color: transparent;
     border: none;
+}
+.sheet-rolltemplate-pbta .sheet-rolltemplate-nameline,
+.sheet-rolltemplate-cash .sheet-rolltemplate-nameline {
+	font-family: Magic School One;
+	font-size: x-large;
+	padding-top: 4px;
 }
 .sheet-rolltemplate-pbta .sheet-rolltemplate-dielinepart .inlinerollresult { 
     color: gold !important;
