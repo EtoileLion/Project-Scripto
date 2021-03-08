@@ -392,6 +392,10 @@
 	display: inline;
 }
 
+.sheet-elective_show[value="Unselected"] + p {
+	display: none;
+}
+
 .sheet-yearhidden[value="0"] ~ .sheet-electivenya,
 .sheet-yearhidden[value="1"] ~ .sheet-electivenya,
 .sheet-yearhidden[value="2"] ~ .sheet-electivenya,
