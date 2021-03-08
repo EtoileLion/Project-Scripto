@@ -384,16 +384,12 @@
 .sheet-yearhidden[value="7"] ~ .sheet-elective7 select {
 	display: inline;
 }
-.sheet-yearhidden:not([value="3"]) ~ .sheet-elective3 p,
-.sheet-yearhidden:not([value="4"]) ~ .sheet-elective4 p,
-.sheet-yearhidden:not([value="5"]) ~ .sheet-elective5 p,
-.sheet-yearhidden:not([value="6"]) ~ .sheet-elective6 p,
-.sheet-yearhidden:not([value="7"]) ~ .sheet-elective7 p {
+.sheet-yearhidden:not([value="3"]) ~ .sheet-elective3 .sheet-elective_show:not([value="Unselected"]) + p,
+.sheet-yearhidden:not([value="4"]) ~ .sheet-elective4 .sheet-elective_show:not([value="Unselected"]) + p,
+.sheet-yearhidden:not([value="5"]) ~ .sheet-elective5 .sheet-elective_show:not([value="Unselected"]) + p,
+.sheet-yearhidden:not([value="6"]) ~ .sheet-elective6 .sheet-elective_show:not([value="Unselected"]) + p,
+.sheet-yearhidden:not([value="7"]) ~ .sheet-elective7 .sheet-elective_show:not([value="Unselected"]) + p {
 	display: inline;
-}
-
-.sheet-elective_show[value="Unselected"] + p {
-	display: none;
 }
 
 .sheet-yearhidden[value="0"] ~ .sheet-electivenya,
