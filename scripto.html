@@ -1,5 +1,5 @@
 <!--- Project Scripto --->
-<!--- Version 1.7 (Bombarda) --->
+<!--- Version 2.0 (Confundo) --->
 <!--- By EtoileLion and Kujio --->
 <div class='bg'>
     <input type='hidden' name='attr_sheetpage' value="1" class="sheetpage">
@@ -53,7 +53,7 @@
 			</td></tr>
 			</table>
 		</div>
-		<div class='5colrow flexcontainer'>
+		<div class='fivecolrow flexcontainer'>
 			<div class='col section'>
 				<button class='attrroll' type='roll' value='&{template:pbta} {{result=[[2d6+@{body}[Body]+?{Forward|0}[Fwd]+@{injured}[Inj.]cs>10cf<6]]}} {{forwardr=[[?{Forward|0}]]}} {{char=@{character_name}}} {{attr=Body}}'>
 					<label data-i18n="body">Body</label>
@@ -161,9 +161,11 @@
 					<p data-i18n="relations">Relationships</p>
 			   </div>
 			   <fieldset class='repeating_frenemies'>
+			   <div class="flexcontainer">
 				<button class='relationroll' type='roll' value='&{template:pbta} {{result=[[2d6+@{relation}[Relation]+?{Stat|None, 0[None]|Body, @{body}[Body] + @{injured}[Inj.]|Heart, @{heart}[Heart] + @{upset}[Upset]|Mind, @{mind}[Mind] + @{dazed}[Dazed]|Soul,@{soul}[Soul] + @{exhausted}[Exh.]|Magic,@{magic}[Magic] + @{jinxed}[Jnx.]}+?{Forward|0}[Fwd]cs>10cf<6]]}} {{relation=1}} {{forwardr=[[?{Forward|0}]]}} {{char=@{character_name}}} {{attr=Attribute}}'></button>
 				<input type='number' min=-2 max=2 value=0 step=1 name='attr_relation'>
-				<input type='text' name='attr_relationname'>
+				<input type='text' name='attr_relationname' class="flex">
+			   </div>
 			   </fieldset>
 			</div>
 		</div>
@@ -230,7 +232,7 @@
 					<p data-i18n="schoolhouse">School House</p>
 			   </div>
 			   
-			   <div class='2colrow'>
+			   <div class='twocolrow'>
 				<div class='col'>
 						<label data-i18n="housecolon">House:</label>
             			<select name="attr_house">
@@ -327,7 +329,7 @@
 			   <div class='sectionhead inline'>
 					<p data-i18n="heritage">Family Heritage</p>
 			   </div>
-			   <div class='3colrow'>
+			   <div class='threecolrow'>
 					<div class='col'>
 					<input type='radio' name='attr_famheritage' value='muggle'>
 					<label data-i18n="mugglefam">Muggle Family</label>
@@ -341,7 +343,7 @@
 					<label data-i18n="purefam">Pureblood Family</label>
 					</div>
 				</div>
-			   <div class='2colrow'>
+			   <div class='twocolrow'>
 				<div class='col'>
 					<label data-i18n="parents">Parents</label>
 					<input type='text' name='attr_parents'>					
@@ -385,7 +387,9 @@
 					<p data-i18n="items">Items</p>
 				</div>	
 				<fieldset class='repeating_inventory'>
-					<input type='text' name='attr_item'>
+				<div class="flexcontainer">
+					<input type='text' name='attr_item' class="flex">
+				</div>
 				</fieldset>
 			</div>
 		</div>
@@ -417,7 +421,7 @@
 					</span>
 				</label>
 				<label class='pfcontainer'>
-					<input name='attr_sheetpage' type='radio' value="3" >
+					<input name='attr_sheetpage' type='radio' value="4" >
 					<span class="pfradio pictos">y
 					</span>		
 				</label>		
@@ -954,13 +958,13 @@
 					</span>
 				</label>
 				<label class='pfcontainer'>
-					<input name='attr_sheetpage' type='radio' value="3" >
+					<input name='attr_sheetpage' type='radio' value="4" >
 					<span class="pfradio pictos">y
 					</span>		
 				</label>		
 			</div>
-		</div>
-		<div class='row'>
+		</div>		
+			<!--
 			<div class='section'>
 				<div class='sectionhead'>
 				<p data-i18n="styling">Styling (Currently Disabled)</p>
@@ -974,6 +978,7 @@
 					<option value='plain' data-i18n="slytherin">Slytherin</option>					
 				</select>				
 			</div>
+			-->
 			<div class='section'>
 				<div class='sectionhead'>
 				<p data-i18n="sheettype">Sheet Type</p>
@@ -983,7 +988,6 @@
 					<option value='npc' data-i18n="npc">NPC</option>					
 				</select>				
 			</div>			    
-		</div>
 			<div class='section'>
 				<div class='sectionhead'>
 				<p data-i18n="sortinghat">Sorting Hat</p>

@@ -1,122 +1,141 @@
 /* General */
 @font-face {
   font-family: "Magic School One";
-  src: url("https://www.github.com/EtoileLion/Project-Scripto/blob/master/artifacts/MagicSchoolOne.ttf?raw=true") format("truetype");
+  src: url("https://www.shadowrequiem.space/fonts/MagicSchoolOne.ttf?raw=true") format("truetype");
 }
 
 @font-face {
   font-family: "Minya Nouvelle";
-  src: url("https://www.github.com/EtoileLion/Project-Scripto/blob/master/artifacts/minyanouvellerg.ttf?raw=true") format("truetype");
+  src: url("https://www.shadowrequiem.space/fonts/minyanouvellerg.ttf?raw=true") format("truetype");
 }
 
-.sheet-section {
+.section {
 	border: 1px solid black;
 	padding: 3px;
 }
-.sheet-row {
+.row {
 	margin-bottom: 3px;
 }
-.sheet-row:last-child {
+.row:last-child {
 	margin-bottom: 0px;
 }
-.sheet-flexcontainer {
+.flexcontainer {
 	display: flex !important;
 }
-.sheet-smalltext {
+.smalltext {
 	font-size: x-small;
 }
-.sheet-flexcontainer {
+.flexcontainer {
 	display: flex;
 }
-.sheet-flex {
+.flex {
 	flex: 1;
 }
-.sheet-sectionhead p {
+.sectionhead p {
     padding: 5px 0px 0px 5px;
 }
-.sheet-subtext {
+.subtext {
 	font-size: x-small;
 	font-family: "Minya Nouvelle";
 }
 /* Font Shift */
-.sheet-pictos {
+.pictos {
 	font-family: "Pictos";
 }
 
-.sheet-ms1,.sheet-sectionhead p,.sheet-name,.sheet-attrroll label {
+.ms1,.sectionhead p,.name,.attrroll label {
     font-family: "Magic School One";
     font-size: x-large;
 }
-.sheet-minya,
-.sheet-sigspellroll ~ p,
-.sheet-sigspellroll,
-.sheet-pet label,
-.sheet-house label,
-.sheet-family label,
-.sheet-money label,
-.sheet-looks label,
-.sheet-wand label,
-.sheet-conditions input + p,
-.sheet-section ul,
-.sheet-header label,
-.sheet-charadv label {
+.minya,
+.sigspellroll ~ p,
+.sigspellroll,
+.pet label,
+.house label,
+.family label,
+.money label,
+.looks label,
+.wand label,
+.conditions input + p,
+.section ul,
+.header label,
+.charadv label {
     font-family: "Minya Nouvelle";
 }
 
 /* Header */
-.sheet-header label {
+.header label {
 	display: inline;
 }
-.sheet-header table {
+.header table {
     width: 100%;
 }
-.sheet-name {
+.name {
     font-size: 48px;
     padding: 0px;
     border: none;
     color: black;
 }
-.sheet-pagetogglediv {
+.pagetogglediv {
+}
+.header.flexcontainer {
+	margin-bottom: 4px;
 }
 /* Attributes */
-.sheet-5colrow {
+.fivecolrow {
 	margin-bottom: 3px;
 }
-.sheet-5colrow .sheet-col {
+.fivecolrow .col {
 	flex: 1;
 	text-align: center;
 }
-.sheet-attrroll {
+.attrroll {
 	display: block;
 	background: transparent;
 	border: none;
 	margin: 0 auto 0 auto !important;
 }
-.sheet-attrroll:hover label {
+.attrroll:hover label {
 	color: #880088;
 }
-.sheet-attrroll label {
+.attrroll label {
 	cursor: pointer;
 	padding-top: 5px;
 }
-.sheet-attrroll::before {
+.attrroll::before {
 	content: none !important;
 }
-.sheet-5colrow .sheet-col li {
+.fivecolrow .col li {
 	text-align: left;
 	font-size: x-small;
 }
-.sheet-attrroll + input {
+.attrroll + input {
     border: none;
     font-size: xx-large;
     text-align: center;
 }
+.twocolrow {
+	margin-bottom: 3px;
+}
+.twocolrow .col {
+	width: calc(50% - 20px);
+	display: inline-block;
+}
+.threecolrow .col {
+	width: calc(33% - 10px);
+	display: inline-block;
+	text-align: center;
+}
+.charsheet .row {
+	margin-left: 0px;
+	margin-right: 0px;
+}
 /* Traits */
-.sheet-negtraits,
-.sheet-postraits {
+.negtraits,
+.postraits {
 	flex: 1
 }
-.sheet-traitbox {
+.traitbox {
   position: relative;
   padding-left: 35px;
   margin-bottom: 12px;
@@ -127,14 +146,14 @@
   user-select: none;
   width: 17px !important;
 }
-.sheet-traitbox input {
+.traitbox input {
    position: absolute;
   opacity: 0;
   cursor: pointer;
   height: 0;
   width: 0;   
 }
-.sheet-traitbox span {
+.traitbox span {
   position: absolute;
   top: 0;
   left: 0;
@@ -142,35 +161,35 @@
   width: 17px;
   color: transparent;
 }
-.sheet-traitbox input ~ span:before {
+.traitbox input ~ span:before {
     color: black;
     content: ")";
     font-family: "Pictos";
     margin-left:5px;
 }
-.sheet-traitbox input:checked ~ span:before {
+.traitbox input:checked ~ span:before {
   content: "(";
 }
-.sheet-traitbox ~ input {
+.traitbox ~ input {
     margin-left: 23px;
 }
 
 /* Conditions */
-.sheet-conditions .sheet-flexcontainer p {
+.conditions .flexcontainer p {
 	flex: 1;
 	display: inline;
 }
-.sheet-conditions div:nth-child(2) {
+.conditions div:nth-child(2) {
 	padding-left: 5px;
 }
 /* XP */
-.sheet-xp {
+.xp {
 	width: auto;
 }
-.sheet-xpcontainer {
+.xpcontainer {
     text-align: center;
 }
-.sheet-xpbox {
+.xpbox {
   position: relative;
   margin-bottom: 12px;
   cursor: pointer;
@@ -180,14 +199,14 @@
   user-select: none;
   width: 17px !important;
 }
-.sheet-xpbox input {
+.xpbox input {
    position: absolute;
   opacity: 0;
   cursor: pointer;
   height: 0;
   width: 0;   
 }
-.sheet-xpbox span {
+.xpbox span {
   position: absolute;
   top: 0;
   left: 0;
@@ -195,138 +214,138 @@
   width: 17px;
   color: transparent;
 }
-.sheet-xpbox input ~ span:before {
+.xpbox input ~ span:before {
     color: #999;
     content: "S";
     font-family: "Pictos";
     margin-left:5px;
 }
-.sheet-xpbox input:checked ~ span:before {
+.xpbox input:checked ~ span:before {
   color: goldenrod;
 }
-.sheet-xpbox ~ input {
+.xpbox ~ input {
     margin-left: 22px;
 }
 
-.sheet-xp label {
+.xp label {
 	display: inline-block;
 }
 /* Wand */
-.sheet-wand {
+.wand {
 	flex: 1;
 }
 
-.sheet-wand div:not(:first-child) {
+.wand div:not(:first-child) {
 	display: inline-block;
 }
 
-.sheet-wand div:nth-child(4) input {
+.wand div:nth-child(4) input {
 	width: 150px;
 }
 /* Looks */
-.sheet-looks div:not(:first-child) {
+.looks div:not(:first-child) {
 	display: inline-block;
 }
-.sheet-looks {
+.looks {
 	flex: 1;
 }
 /* Money */
-.sheet-money {
+.money {
 	width: 150px;
 }
-.sheet-money input {
+.money input {
 	margin-right: 2px;
 }
 /* Family */
-.sheet-family {
+.family {
     flex: 1;
 }
-.sheet-house {
+.house {
     padding: 5px;
     flex: 1;
 }
-.sheet-family input[type='radio'] + label {
+.family input[type='radio'] + label {
 	display: inline;
 }
 /* Spells */
-.sheet-sigspellroll {
+.sigspellroll {
 	display: inline;
 	background: transparent;
 	border: none;
 	margin: 0 auto 0 auto !important;
 	cursor: pointer;
 }
-.sheet-sigspellroll label {
+.sigspellroll label {
 	cursor: pointer;
 	font-size: 0.8em;
 }
-.sheet-sigspellroll:hover label {
+.sigspellroll:hover label {
 	color: #880088;
 }
-.sheet-sigspellroll::before {
+.sigspellroll::before {
 	content: none !important;
 }
-.sheet-sigspellroll + p {
+.sigspellroll + p {
 	display:inline-block;
 }
 
 /* Pet */
-.sheet-pet {
+.pet {
 	flex: 1;
 }
-.sheet-pet > table {
+.pet > table {
 	width: 100%;
 }
-.sheet-pet > textarea {
+.pet > textarea {
 	width: 97%;
 }
 /* Items */
-.sheet-inventory {
+.inventory {
 	width: 50%;
 }
 /* Relationships */
 
-.sheet-relationships {
+.relationships {
     width: 50%;
 }
 
 /* Notes */
-.sheet-notes {
+.notes {
 	flex: 1;
 }
-.sheet-notes textarea {
+.notes textarea {
 	width: 98%;
 }
 /* Bio */
-.sheet-bio {
+.bio {
 	flex: 1;
 }
-.sheet-bio textarea {
+.bio textarea {
 	width: 98%;
 }
 
 /* NPC Motivation */
-.sheet-motivations {
+.motivations {
 	width: 100%;
 }
 
 /* Page Toggler */
-.sheet-sheettype[value='npc'] ~ .sheet-pagetoggledivpc,
-.sheet-pagetoggledivnpc,
-.sheet-page {
+.sheettype[value='npc'] ~ .pagetoggledivpc,
+.pagetoggledivnpc,
+.page {
 	display: none;	
 }
-.sheet-sheettype[value='npc'] ~ .sheet-pagetoggledivnpc,
-.sheet-sheetpage[value="npc"] ~ .sheet-pagenpc,
-.sheet-sheetpage[value="1"] ~ .sheet-page1,
-.sheet-sheetpage[value="2"] ~ .sheet-page2,
-.sheet-sheetpage[value="3"] ~ .sheet-page3,
-.sheet-sheetpage[value="4"] ~ .sheet-page4
+.sheettype[value='npc'] ~ .pagetoggledivnpc,
+.sheetpage[value="npc"] ~ .pagenpc,
+.sheetpage[value="1"] ~ .page1,
+.sheetpage[value="2"] ~ .page2,
+.sheetpage[value="3"] ~ .page3,
+.sheetpage[value="4"] ~ .page4
 {
 	display: inline;
 }
 
-.sheet-pfcontainer {
+.pfcontainer {
     display: inline;
     position: relative;
     padding-left: 22px;
@@ -338,12 +357,12 @@
     -ms-user-select: none;
     user-select: none;
 }
-.sheet-pfcontainer input {
+.pfcontainer input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
 }
-.sheet-pfradio {
+.pfradio {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -353,92 +372,92 @@
 	border-radius: 25%;
 	text-align: center;
 }
-.sheet-pfcontainer:hover input ~ .sheet-pfradio {
+.pfcontainer:hover input ~ .pfradio {
     background-color: #ccc;
 }
-.sheet-pfcontainer input:checked ~ .sheet-pfradio:after {
+.pfcontainer input:checked ~ .pfradio:after {
 	display: block;
 }
-.sheet-sheetpage[value="npc"] ~ .sheet-pagenpc .sheet-pagetogglediv .sheet-pfcontainer input[value="npc"] ~ .sheet-pfradio,
-.sheet-sheetpage[value="4"] ~ .sheet-page3 .sheet-pagetogglediv .sheet-pfcontainer input[value="4"] ~ .sheet-pfradio,
-.sheet-sheetpage[value="3"] ~ .sheet-page3 .sheet-pagetogglediv .sheet-pfcontainer input[value="3"] ~ .sheet-pfradio,
-.sheet-sheetpage[value="1"] ~ .sheet-page1 .sheet-pagetogglediv .sheet-pfcontainer input[value="1"] ~ .sheet-pfradio,
-.sheet-sheetpage[value="2"] ~ .sheet-page2 .sheet-pagetogglediv .sheet-pfcontainer input[value="2"] ~ .sheet-pfradio {
+.sheetpage[value="npc"] ~ .pagenpc .pagetogglediv .pfcontainer input[value="npc"] ~ .pfradio,
+.sheetpage[value="4"] ~ .page4 .pagetogglediv .pfcontainer input[value="4"] ~ .pfradio,
+.sheetpage[value="3"] ~ .page3 .pagetogglediv .pfcontainer input[value="3"] ~ .pfradio,
+.sheetpage[value="1"] ~ .page1 .pagetogglediv .pfcontainer input[value="1"] ~ .pfradio,
+.sheetpage[value="2"] ~ .page2 .pagetogglediv .pfcontainer input[value="2"] ~ .pfradio {
 	background-color: #800d6d;
 	color: #aaa;
 }
 
 /* Electives */
-.sheet-checklist,
-.sheet-electiveblock:not(.sheet-electivenya) p,
-.sheet-electiveblock select,
-.sheet-electiveblock {
+.checklist,
+.electiveblock:not(.electivenya) p,
+.electiveblock select,
+.electiveblock {
 	display: none;
 }
 
-.sheet-inline,
-.sheet-yearhidden[value="3"] ~ .sheet-elective3 select,
-.sheet-yearhidden[value="4"] ~ .sheet-elective4 select,
-.sheet-yearhidden[value="5"] ~ .sheet-elective5 select,
-.sheet-yearhidden[value="6"] ~ .sheet-elective6 select,
-.sheet-yearhidden[value="7"] ~ .sheet-elective7 select {
+.inline,
+.yearhidden[value="3"] ~ .elective3 select,
+.yearhidden[value="4"] ~ .elective4 select,
+.yearhidden[value="5"] ~ .elective5 select,
+.yearhidden[value="6"] ~ .elective6 select,
+.yearhidden[value="7"] ~ .elective7 select {
 	display: inline;
 }
-.sheet-yearhidden:not([value="3"]) ~ .sheet-elective3 .sheet-elective_show:not([value="Unselected"]) + p,
-.sheet-yearhidden:not([value="4"]) ~ .sheet-elective4 .sheet-elective_show:not([value="Unselected"]) + p,
-.sheet-yearhidden:not([value="5"]) ~ .sheet-elective5 .sheet-elective_show:not([value="Unselected"]) + p,
-.sheet-yearhidden:not([value="6"]) ~ .sheet-elective6 .sheet-elective_show:not([value="Unselected"]) + p,
-.sheet-yearhidden:not([value="7"]) ~ .sheet-elective7 .sheet-elective_show:not([value="Unselected"]) + p {
+.yearhidden:not([value="3"]) ~ .elective3 .elective_show:not([value="Unselected"]) + p,
+.yearhidden:not([value="4"]) ~ .elective4 .elective_show:not([value="Unselected"]) + p,
+.yearhidden:not([value="5"]) ~ .elective5 .elective_show:not([value="Unselected"]) + p,
+.yearhidden:not([value="6"]) ~ .elective6 .elective_show:not([value="Unselected"]) + p,
+.yearhidden:not([value="7"]) ~ .elective7 .elective_show:not([value="Unselected"]) + p {
 	display: inline;
 }
 
-.sheet-yearhidden[value="0"] ~ .sheet-electivenya,
-.sheet-yearhidden[value="1"] ~ .sheet-electivenya,
-.sheet-yearhidden[value="2"] ~ .sheet-electivenya,
-.sheet-yearhidden[value="3"] ~ .sheet-elective3,
-.sheet-yearhidden[value="4"] ~ .sheet-elective3,
-.sheet-yearhidden[value="4"] ~ .sheet-elective4,
-.sheet-yearhidden[value="5"] ~ .sheet-elective3,
-.sheet-yearhidden[value="5"] ~ .sheet-elective4,
-.sheet-yearhidden[value="5"] ~ .sheet-elective5,
-.sheet-yearhidden[value="6"] ~ .sheet-elective3,
-.sheet-yearhidden[value="6"] ~ .sheet-elective4,
-.sheet-yearhidden[value="6"] ~ .sheet-elective5,
-.sheet-yearhidden[value="6"] ~ .sheet-elective6,
-.sheet-yearhidden[value="7"] ~ .sheet-elective3,
-.sheet-yearhidden[value="7"] ~ .sheet-elective4,
-.sheet-yearhidden[value="7"] ~ .sheet-elective5,
-.sheet-yearhidden[value="7"] ~ .sheet-elective6,
-.sheet-yearhidden[value="7"] ~ .sheet-elective7,
-.sheet-yearhidden[value="9"] ~ .sheet-elective3,
-.sheet-yearhidden[value="9"] ~ .sheet-elective4,
-.sheet-yearhidden[value="9"] ~ .sheet-elective5,
-.sheet-yearhidden[value="9"] ~ .sheet-elective6,
-.sheet-yearhidden[value="9"] ~ .sheet-elective7,
-.sheet-yearhidden[value="0"] ~ .sheet-checklistnone,
-.sheet-yearhidden[value="1"] ~ .sheet-checklistnone,
-.sheet-yearhidden[value="2"] ~ .sheet-checklist24,
-.sheet-yearhidden[value="3"] ~ .sheet-checklist24,
-.sheet-yearhidden[value="4"] ~ .sheet-checklist24,
-.sheet-yearhidden[value="5"] ~ .sheet-checklist57,
-.sheet-yearhidden[value="6"] ~ .sheet-checklist57,
-.sheet-yearhidden[value="7"] ~ .sheet-checklist57,
-.sheet-yearhidden[value="9"] ~ .sheet-checklistfinal {
+.yearhidden[value="0"] ~ .electivenya,
+.yearhidden[value="1"] ~ .electivenya,
+.yearhidden[value="2"] ~ .electivenya,
+.yearhidden[value="3"] ~ .elective3,
+.yearhidden[value="4"] ~ .elective3,
+.yearhidden[value="4"] ~ .elective4,
+.yearhidden[value="5"] ~ .elective3,
+.yearhidden[value="5"] ~ .elective4,
+.yearhidden[value="5"] ~ .elective5,
+.yearhidden[value="6"] ~ .elective3,
+.yearhidden[value="6"] ~ .elective4,
+.yearhidden[value="6"] ~ .elective5,
+.yearhidden[value="6"] ~ .elective6,
+.yearhidden[value="7"] ~ .elective3,
+.yearhidden[value="7"] ~ .elective4,
+.yearhidden[value="7"] ~ .elective5,
+.yearhidden[value="7"] ~ .elective6,
+.yearhidden[value="7"] ~ .elective7,
+.yearhidden[value="9"] ~ .elective3,
+.yearhidden[value="9"] ~ .elective4,
+.yearhidden[value="9"] ~ .elective5,
+.yearhidden[value="9"] ~ .elective6,
+.yearhidden[value="9"] ~ .elective7,
+.yearhidden[value="0"] ~ .checklistnone,
+.yearhidden[value="1"] ~ .checklistnone,
+.yearhidden[value="2"] ~ .checklist24,
+.yearhidden[value="3"] ~ .checklist24,
+.yearhidden[value="4"] ~ .checklist24,
+.yearhidden[value="5"] ~ .checklist57,
+.yearhidden[value="6"] ~ .checklist57,
+.yearhidden[value="7"] ~ .checklist57,
+.yearhidden[value="9"] ~ .checklistfinal {
 	display: block;
 }
 
 /* Checklist */
-.sheet-checklist span {
+.checklist span {
 	display: inline;
 }
-.sheet-checklist p {
+.checklist p {
 	display: inline-block;
 }
-.sheet-checklist_carryone:not([value="on"]) + div,
-.sheet-checklist_carrytwo:not([value="on"]) + .sheet-checklist_carrytwo:not([value="on"]) + div,
-.sheet-checklist_carrythree:not([value="on"]) + .sheet-checklist_carrythree:not([value="on"]) + .sheet-checklist_carrythree:not([value="on"]) + div,
-.sheet-checklist_carryfour:not([value="on"]) + .sheet-checklist_carryfour:not([value="on"]) + .sheet-checklist_carryfour:not([value="on"]) + .sheet-checklist_carryfour:not([value="on"]) + div,
-.sheet-checklist_carryvalue:not([value="on"]) + span {
+.checklist_carryone:not([value="on"]) + div,
+.checklist_carrytwo:not([value="on"]) + .checklist_carrytwo:not([value="on"]) + div,
+.checklist_carrythree:not([value="on"]) + .checklist_carrythree:not([value="on"]) + .checklist_carrythree:not([value="on"]) + div,
+.checklist_carryfour:not([value="on"]) + .checklist_carryfour:not([value="on"]) + .checklist_carryfour:not([value="on"]) + .checklist_carryfour:not([value="on"]) + div,
+.checklist_carryvalue:not([value="on"]) + span {
 	display: none;
 }
 /* Roll Template */
