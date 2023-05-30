@@ -8,8 +8,6 @@ A character sheet for Tablestory's Witchcraft and Wizardry.
 
 This version of the sheet requires a Pro level account with Roll20, in order to utilize custom character sheets.
 
-***UPDATE: This version of the sheet works with "Legacy Sanitization" turned ON in your game options. A new version will be developed soon.***
-
 ## Installation
 
 1. Create a game.
